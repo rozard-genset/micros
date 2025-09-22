@@ -1,0 +1,7 @@
+<!-- variable -->
+{{- $sected := partial "lib/system/module.html" . -}}
+{{- $layout := partial "lib/system/layout.html" . -}}
+{{- $kinder := partial "lib/system/routes.html" . -}}
+
+{{- $pather := printf "%s/module/%s/%s/lazy" $sected $kinder $layout  -}}
+{{- return $pather -}}

@@ -1,0 +1,27 @@
+<div id="article-menu" class="flex center-x">
+    <div class="time flex center-x">
+        <div class=""><span class="desktop">Estimated</span> Reading Time :</div>
+        <div class="font-bold ml-10">{{ printf "%d min" .ReadingTime }}</div>
+    </div>
+    <div class="acts flex center-x center-y ml-a">
+        <div class="icon sm la-01 border-all rounded-full">{{ partial "icon/line/bookmark.svg" }}</div>
+        <div class="icon sm la-01 border-all rounded-full">{{ partial "icon/line/headphones.svg" }}</div>
+        <div class="icon sm la-01 border-all rounded-full">{{ partial "icon/line/share-2.svg" }}</div>
+    </div>
+</div>
+<hr class="mb-60">
+<div id="article-load" class="main-item">
+    <div class="animated-background">
+        <div class="background-masker btn-divide-left"></div>
+    </div>
+     <div class="animated-background">
+        <div class="background-masker btn-divide-left"></div>
+    </div>
+     <div class="animated-background">
+        <div class="background-masker btn-divide-left"></div>
+    </div>
+    <div class="animated-background">
+        <div class="background-masker btn-divide-left"></div>
+    </div>
+</div>
+<div id="article-data">{{- .Content -}}</div>

@@ -1,0 +1,11 @@
+<div class="box">
+	<div class="overlay flex center-x">
+		<div class="lead">
+			<h1 class="text-6xl">{{- with .data.head -}}{{- . -}}{{- end -}}</h1>
+			<h2 class="text-2xl mb-60">{{- with .data.lead -}}{{- . -}}{{- end -}}</h2>
+		</div>
+	</div>
+	<div class="animation">
+		<div class="edge"></div><canvas id="earth" class="earth"></canvas><div class="halo"></div>
+	</div>
+</div>

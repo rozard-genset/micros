@@ -1,0 +1,34 @@
+
+
+@media only screen and (min-width: 480px) {
+
+}
+
+
+@media only screen and (min-width: 768px) {
+
+}
+
+
+@media only screen and (min-width: 1024px) {
+
+}
+
+
+@media only screen and (min-width: 1280px) {
+
+
+    #main-8{
+        margin-top: 5rem ;
+        .rows{
+            grid-template-columns: repeat( 3, calc( 33.333% - 5rem ) );
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+    }
+}
+
+
+@media only screen and (min-width: 1536px) {
+
+}

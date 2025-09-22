@@ -1,0 +1,11 @@
+{{- $view := "themes/default/page/main/view/" -}}
+{{- $page := printf "%s/page.html" $view -}}
+{{- $meta := printf "%s/meta.html" $view -}}
+
+
+<div id="main-1">
+    <div class="wrap grid">
+        {{- partial $page  . -}}
+        {{- partial $meta  . -}}
+    </div>
+</div>

@@ -1,0 +1,30 @@
+<!-- format for general content  -->
+ <!-- format for youtube embed page -->
+<div id="format-google-slide" data-format="gslide">
+    <div class="media mb-60">
+        <div id="covers" class="overlay flex center-a">
+            {{ partial "format/embed/youtube/part/thumb.html" . }}
+            <div class="action flex center-a">
+                <div class="icon rounded-xl border-all mr-10">{{ partial "lib/icon" "play" }}</div>
+            </div>
+        </div>
+        <div id="player" class="hide" data-uri="{{ .Params.format.datum }}/pubembed?start=true&loop=true&delayms=3000">
+            <iframe id="iframe" src=""title="{{ .Title }}" frameborder="0"></iframe>
+        </div>
+    </div>
+    <div class="inform">
+        <h1 class="title font-bold mb-30">{{ .Title }}</h1>
+        <div class="meta flex center-x mb-40">
+            <div class="avatar rounded-full overflow-hidden">{{- partial "parted/avatar/user-32.html" . -}}</div>
+            <div class="author text-md font-bold mt-00 mb-00 ml-20">{{- index .Params.metadata.author 0 -}}</div>
+            <a href="{{ .Params.format.links.youtube }}" target="_blank" class="plat flex center-x ml-a" aria-label="watch on youtube">
+                <span class="ml-a mr-10 font-bold tablet">Watch on vimeo</span>
+                <div class="icon xl">{{ partial "lib/icon" "youtube-square" }}</div>
+            </a>
+            <a href="{{ .Params.format.links.spotify }}" target="_blank" class="plat flex center-x" aria-label="listen at spotify">
+                <span class="ml-a mr-10 font-bold tablet">Listen at spotify</span>
+                <div class="icon xl">{{ partial "lib/icon" "spotify-square" }}</div>
+            </a>
+        </div>
+    </div>
+</div>

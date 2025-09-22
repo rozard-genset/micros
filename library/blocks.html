@@ -1,0 +1,29 @@
+{{- $themes := partial "lib/system/themes.html" . -}}
+{{- $sected := partial "lib/system/module.html" . -}}
+{{- $unique := partial "lib/system/unique.html" . -}}
+{{- $format := partial "lib/format/medias.html" . -}}
+{{- $models := partial "lib/format/models.html" . -}}
+
+{{- $contex := . -}}
+
+<main id="blocks-{{ $unique }}">
+{{- range $index, $block := .Page.Params.Blocks -}}
+
+    {{- $based := printf "blocks/%s/%s/%s/render.html"          .render.type .render.pool .render.name          -}}
+    {{- $modul := printf "%s/blocks/%s/%s/%s/render.html"        $sected .render.type .render.pool .render.name -}}
+    {{- $theme := printf "themes/%s/blocks/%s/%s/%s/render.html" $themes .render.type .render.pool .render.name -}}
+   
+    {{- $datum := . -}}
+
+    {{- range ( slice $based $theme $modul ) -}}
+        {{- if templates.Exists ( printf "partials/%s" . ) -}}
+            <section id="block-{{- math.Sum $index 1 -}}" class="block {{ $datum.render.pool }} {{ $datum.render.name }}">
+                <div class="{{ with $datum.render.wrap }}wrap{{ end }}">
+                    {{- partial . ( dict "ctx" $contex "data" $datum.datum ) -}}
+                </div>
+            </section>
+        {{- end -}}
+    {{- end -}}
+
+{{- end -}}
+</main>

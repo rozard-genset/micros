@@ -1,0 +1,16 @@
+<template id="proto-feat">
+    <div class="head flex center-x mb-30 border-bottom">
+        <div class="icon md">
+            {{- partial "/lib/icon" "git-pull-request" -}}
+        </div>
+        <h2 class="text-sm uppercase font-bold border-left pl-15 pb-10 mb-00">Stories Arround</h2>
+    </div>
+    <div class="leaf">
+        {{- range first 3 ( partial "lib/stories/query/node-page-neer-term.html" . ) -}}
+        <a href="{{ .RelPermalink }}" class="article">
+            <h2 class="font-bold text-md">{{ .Title }}</h2>
+            <p class="text-sm"> {{ .Page.Params.Description }}</p>
+        </a><hr>
+        {{- end -}}
+    </div>
+</template>

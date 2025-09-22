@@ -1,0 +1,69 @@
+@import "../../../../../css/wrap/m-00.scss";
+@import "../../../../../css/wrap/m-10.scss";
+@import "../../../../../css/wrap/m-15.scss";
+@import "../../../../../css/wrap/m-20.scss";
+@import "../../../../../css/wrap/m-25.scss";
+@import "../../../../../css/wrap/m-30.scss";
+@import "../../../../../css/wrap/m-40.scss";
+@import "../../../../../css/wrap/m-50.scss";
+@import "../../../../../css/wrap/m-60.scss";
+@import "../../../../../css/wrap/m-70.scss";
+@import "../../../../../css/wrap/p-05.scss";
+@import "../../../../../css/wrap/p-10.scss";
+@import "../../../../../css/wrap/p-15.scss";
+@import "../../../../../css/load/core.scss";
+@import "../../../../../css/load/main.scss";
+
+@import "head/list.scss";
+
+
+main{
+    margin-top: 3rem;
+}
+
+
+@media only screen and (min-width: 480px) {
+
+}
+
+
+@media only screen and (min-width: 768px) {
+
+}
+
+
+@media only screen and (min-width: 1024px) {
+
+    main{
+        .rows{
+            grid-template-columns: 30% 65%;
+            grid-gap: 0% 5%;
+        }
+
+        #div3{
+            grid-column: 1;
+            grid-row: 2;
+        }
+    }
+}
+
+
+@media only screen and (min-width: 1280px) {
+
+    main{
+        .rows{
+            grid-template-columns: 22.5% 40% 22.5%;
+            grid-gap: 7.5%;
+        }
+
+        #div3{
+            grid-column: 3;
+            grid-row: 1;
+        }
+    }
+}
+
+
+@media only screen and (min-width: 1536px) {
+
+}

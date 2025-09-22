@@ -1,0 +1,20 @@
+{{- $term := slice ( .Title | urlize ) -}}
+{{- $page := slice -}}
+{{- range where .Site.RegularPages "Type" .Section -}}
+
+    {{- if strings.Contains .Page.RelPermalink ( printf "%s/pool" .Section  ) -}}
+
+        {{ $terms := slice }}
+
+        {{- range .Page.Params.Terms -}}
+            {{- $terms = $terms | append ( . | urlize ) -}}
+        {{- end -}}
+
+        {{ if in $terms $term }}{{- else}}
+            {{- $page = $page | append  . -}}
+        {{ end }}
+
+    {{- end -}}
+
+{{- end -}}
+{{- return $page -}}

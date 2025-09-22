@@ -1,0 +1,17 @@
+
+{{- $target := .Site.Params.Profile.Report.Github -}}
+
+{{- with .Parent.Page.Params.report.github -}}
+    {{- $target = . -}}
+{{- end -}}
+
+{{- with .Page.Params.report.github -}}
+    {{- $target = . -}}
+{{- end -}}
+
+
+{{- if $target -}}
+    <script src="https://utteranc.es/client.js" repo="{{ $target }}" issue-term="title" theme="dark-blue" crossorigin="anonymous" async></script>
+    {{- .Store.Add "parted_css" ( slice "scripts/parted/report/main/style.scss" ) -}}
+    {{- .Store.Add "parted_jsx" ( slice "scripts/parted/report/main/script.js"  ) -}}
+{{- end -}}

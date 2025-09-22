@@ -1,0 +1,23 @@
+{{- $skels := "stories/module/base/main/skel/" -}}
+{{- $main1 := printf "%s/main-1.html" $skels -}}
+{{- $main2 := printf "%s/main-2.html" $skels -}}
+{{- $main3 := printf "%s/main-3.html" $skels -}}
+{{- $main4 := printf "%s/main-4.html" $skels -}}
+{{- $main5 := printf "%s/main-5.html" $skels -}}
+{{- $main6 := printf "%s/main-6.html" $skels -}}
+{{- $main7 := printf "%s/main-7.html" $skels -}}
+{{- $main8 := printf "%s/main-8.html" $skels -}}
+
+<main id="base" class="main">
+    <div class="wrap grid">
+        {{- partial $main1 . -}}
+        {{- partial $main2 . -}}
+        {{- partial $main3 . -}}
+        {{- partial $main4 . -}}
+        {{- partial $main5 . -}}
+        {{- partial $main6 . -}}
+        {{- partial $main7 . -}}
+        {{- partial $main8 . -}}
+    </div>
+</main>
+

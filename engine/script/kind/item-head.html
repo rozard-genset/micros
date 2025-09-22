@@ -1,0 +1,23 @@
+<!-- variable -->
+{{- $themes := partial "lib/system/themes.html" . -}}
+{{- $sected := partial "lib/system/module.html" . -}}
+{{- $layout := partial "lib/system/layout.html" . -}}
+{{- $kinder := partial "lib/system/routes.html" . -}}
+
+<!-- general -->
+{{- partial "corest/script/help/load-head.html" . -}}
+
+{{- if eq $sected "none" -}}
+    {{- partial "corest/script/kind/item/themes-head.html" . -}}
+{{- else -}}
+    {{- partial "corest/script/kind/item/module-head.html" . -}}
+{{- end -}}
+
+
+<!-- targets -->
+{{- .Store.Set "dest_css" ( printf "assets/scripts/%s/%s/%s/head.css" $sected $kinder $layout ) -}}
+{{- .Store.Set "dest_jsx" ( printf "assets/scripts/%s/%s/%s/head.js"  $sected $kinder $layout ) -}}
+
+
+<!-- compile -->
+{{- partial "corest/script/help/make-head.html" . -}}

@@ -1,0 +1,22 @@
+<!-- variable -->
+{{- $routes := partial "lib/system/module.html" .  -}}
+{{- $module := partial "lib/system/module.html" .  -}}
+{{- $libres := printf "lib/%s/based/routes.html" $module -}}
+
+
+<!-- filter -->
+{{- if and ( .IsSection ) ( ne $module "none" ) ( templates.Exists ( printf "partials/%s" $libres )  ) -}}
+    {{- $routes = partial $libres . -}}
+{{- else if and ( .Section ) ( .IsPage ) ( templates.Exists ( printf "partials/%s" $libres )  ) -}}
+    {{- $routes = partial $libres . -}}
+{{- else if .IsHome -}}
+    {{- $routes = "home" -}}
+{{- else if .IsSection -}}
+    {{- $routes = "item" -}}
+{{- else if .IsNode -}}
+    {{- $routes = "term" -}}
+{{- else if .IsPage -}}
+    {{- $routes = "page" -}}
+{{- end -}}
+
+{{- return $routes -}}

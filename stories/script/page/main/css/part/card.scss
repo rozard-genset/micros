@@ -1,0 +1,39 @@
+.card{
+    padding: 1rem 0;
+    border-top: 1px solid var(--line-01);
+    .author, .thumb{
+        display: none;
+    }
+}
+
+
+@media only screen and (min-width: 480px) {
+
+}
+
+
+@media only screen and (min-width: 768px) {
+
+    .card{
+        padding: 0rem;
+        border-top: 0px;
+        .author, .thumb{
+            display: flex;
+        }
+    }
+}
+
+
+@media only screen and (min-width: 1024px) {
+
+}
+
+
+@media only screen and (min-width: 1280px) {
+
+}
+
+
+@media only screen and (min-width: 1536px) {
+
+}

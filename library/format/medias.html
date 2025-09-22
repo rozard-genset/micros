@@ -1,0 +1,4 @@
+<!-- get format media -->
+{{- $media := "article" }}
+{{- with .Params.format.media -}}{{- $media = .  -}}{{- end -}}
+{{- return $media -}}

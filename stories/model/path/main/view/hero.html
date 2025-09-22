@@ -1,0 +1,15 @@
+<!-- variable -->
+{{- $part := "stories/module/path/main/part/" -}}
+{{- $thum := printf "%s/thumb-hero.html" $part -}}
+
+<div id="hero" class="mb-60">
+    <div class="head">
+        {{- partial $thum . -}}
+    </div>
+    <div class="leaf">
+        <h1 class="text-4xl">Discovery Knowledge and Time Exploration</h1>
+        <hr>
+        <p class="text-sm">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+        </p>
+    </div>
+</div>

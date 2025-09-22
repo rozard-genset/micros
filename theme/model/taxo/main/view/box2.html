@@ -1,0 +1,25 @@
+ <div id="box-2" class="mb-60">
+    <div class="grid rows">
+    {{ range $index, $value := partial "lib/queries/page-list-all-term" . }}{{ if and ( gt $index 0 ) ( le $index 3 ) }}
+    <div id="{{ .name | urlize }}" class="boxes grid">
+        <div class="head mb-20">
+            <div class="flex center-x ">
+            <h2 class="text-2xl border-right">{{ .name }}</h2>
+            <hr>
+            </div>
+            <p class="">{{ .page.Params.Module.Quotes }}</p>
+        </div>
+        <ul class="leaf grid boxs-list">
+            {{- range $index, $value := first 5 .list -}}
+                <li class="item list-{{ math.Sum $index 1 }}">{{- partial "themes/default/taxo/main/part/cardlist.html" . -}}</li>
+            {{- end -}}
+        </ul>
+        <hr class="mb-15">
+        <a href="{{ .page.RelPermalink }}" class="flex center-x capitalize text-sm font-bold">
+            More {{ .page.Title }} article
+            <div class="icon sm border-all rounded-full ml-15">{{ partial "icon/line/arrow-right" }}</div>
+        </a>
+    </div>
+    {{- end -}}{{- end -}}
+    </div>
+</div>

@@ -1,0 +1,8 @@
+{{- with .Page.Params.Team.Organization -}}
+    {{- $path := printf "/%s/%s" "profile/groups" ( . | urlize ) -}}
+    {{- with $.Site.GetPage $path -}}
+    <h2 class="uppercase text-lg mt-10 mb-50">
+        <span class="capitalize text-gray-500 mr-05">Present By</span> {{ .Title }}
+    </h2>
+    {{- end -}}
+{{- end -}}

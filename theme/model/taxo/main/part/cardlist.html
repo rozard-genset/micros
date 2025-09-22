@@ -1,0 +1,12 @@
+{{- $feat := "themes/default/taxo/main/part/thumb-feature.html" -}}
+
+<a href="{{ .RelPermalink }}" class="card list grid">
+    <div class="thumb">{{- partial $feat . -}}</div>
+    <div class="metas">
+        <div class="flex">
+            <div class="rounded-full overflow-hidden">{{- partial "parted/avatar/user-28.html" . -}}</div>
+            <h2 class="text-lg font-bold mb-10 mt-00 ml-15">{{- .Title -}}</h2>
+        </div>
+        <p class="text-sm mb-00">{{- .Page.Params.Description -}}</p>
+    </div> 
+</a>

@@ -1,0 +1,42 @@
+.middle-xs {
+    -ms-flex-align: center;
+    -webkit-box-align: center;
+    align-items: center;
+}
+
+@media only screen and (min-width: 480px) {
+    .middle-sm {
+        -ms-flex-align: center;
+        -webkit-box-align: center;
+        align-items: center;
+    }
+}
+@media only screen and (min-width: 768px) {
+    .middle-md {
+        -ms-flex-align: center;
+        -webkit-box-align: center;
+        align-items: center;
+    }
+}
+@media only screen and (min-width: 1024px) {
+    .middle-lg {
+        -ms-flex-align: center;
+        -webkit-box-align: center;
+        align-items: center;
+    }
+}
+@media only screen and (min-width: 1280px) {
+    .middle-xl {
+        -ms-flex-align: center;
+        -webkit-box-align: center;
+        align-items: center;
+    }
+}
+@media only screen and (min-width: 1536px) {
+    .middle-xxl {
+        -ms-flex-align: center;
+        -webkit-box-align: center;
+        align-items: center;
+    }
+}
+

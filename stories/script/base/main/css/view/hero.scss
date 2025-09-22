@@ -1,0 +1,191 @@
+#hero{
+
+    min-height: 62vh;
+
+    .lead{
+
+        text-align: center; 
+
+        h1{
+            font-size: 2.4rem;
+            margin-bottom: 3rem;
+        }
+
+        h2{
+            font-size: 1.175rem;
+        }
+
+        .menu{
+            display: flex;
+            justify-content: center;
+        }
+
+        .icon{
+            color: orangered;
+            border-color: orangered;
+        }
+
+        a { 
+            margin-bottom: 1rem;
+            justify-content: center;
+        }
+    }
+
+
+    .thum{
+        margin-bottom: 3rem;
+
+        picture, img{
+            width: 280px;
+            margin: auto;
+            height: auto;
+        }
+    }
+}
+
+
+
+@media only screen and (min-width: 480px) {
+
+     #hero{
+
+        min-height: 76vh;
+
+        .lead{
+            
+            h1{
+                font-size: 2.7rem;
+            }
+
+            h2{
+                font-size: 1.2rem;
+            }
+        }
+
+        .thum{
+            margin-bottom: 5rem;
+
+            picture, img{
+                width: 380px;
+            }
+        }
+    }
+}
+
+
+@media only screen and (min-width: 768px) {
+
+    #hero{
+
+         min-height: 92vh;
+
+        .lead{
+            
+            h1{
+                font-size: 2.7rem;
+            }
+
+            h2{
+                font-size: 1.2rem;
+            }
+        }
+
+        .thum{
+            margin-bottom: 5rem;
+
+            picture, img{
+                width: 480px;
+                margin: auto;
+            }
+        }
+    }
+}
+
+
+@media only screen and (min-width: 1024px) {
+
+    #hero{
+        
+        min-height: 72vh;
+
+        .rows{
+            grid-template-columns: 420px calc( 100% - 420px - 4rem);
+            justify-content: space-between;
+        }
+
+        .lead{
+
+            text-align: left;
+
+            h1{
+                font-size: 2.95rem;
+            }
+
+            h2{
+                font-size: 1.25rem;
+            }
+
+            .menu{
+                justify-content: flex-start;
+            }
+        }
+
+       
+        .thum{
+            margin-bottom: 0rem;
+
+            picture, img{
+                width: 420px;
+            }
+        }
+    }
+}
+
+
+@media only screen and (min-width: 1280px) {
+
+     #hero{
+        width: 90%;
+        margin: auto;
+        min-height: 82vh;
+
+        .rows{
+            grid-template-columns: 520px calc( 100% - 520px - 4rem);
+        }
+
+        .thum{
+            picture, img{
+                width: 520px;
+            }
+        }
+    }
+}
+
+
+@media only screen and (min-width: 1536px) {
+
+    #hero{
+        
+        width: 85%;
+
+        .rows{
+            grid-template-columns: 580px calc( 100% - 580px - 4rem);
+        }
+
+        .lead{
+            h1{
+                font-size: 3.1rem;
+            }
+
+            h2{
+                font-size: 1.3rem;
+            }
+        }
+
+        .thum{
+            picture, img{
+                width: 580px;
+            }
+        }
+    }
+}

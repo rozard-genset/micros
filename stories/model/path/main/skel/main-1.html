@@ -1,0 +1,9 @@
+<!-- variable -->
+{{- $view := "stories/module/path/main/view/" -}}
+{{- $term := printf "%s/term.html" $view -}}
+
+<div id="main-1">
+    <div class="grid rows">
+        {{- partial $term . -}}
+    </div>
+</div>

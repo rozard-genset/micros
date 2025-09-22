@@ -1,0 +1,20 @@
+{{- $view := "stories/module/base/main/view/" -}}
+{{- $read := printf "%s/read.html" $view -}}
+{{- $pick := printf "%s/pick.html" $view -}}
+{{- $book := printf "%s/book.html" $view -}}
+{{- $term := printf "%s/term.html" $view -}}
+{{- $card := printf "%s/cale.html" $view -}}
+{{- $data := partial "lib/stories/query/base-page-each-term.html" . -}}
+
+<div id="main-2" class="mb-60">
+    <div class="grid rows">
+        <div class="main">
+            {{ range $index, $value := $data }}{{ if eq $index 0 }}
+                {{- partial $card  . -}}
+            {{- end -}}{{- end -}}
+        </div>
+        <div class="side">
+            {{ partial $term . }}{{ partial $book . }}{{ partial $pick . }}
+        </div>
+    </div>
+</div>

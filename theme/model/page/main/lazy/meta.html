@@ -1,0 +1,31 @@
+<template id="proto-meta">
+    <div class="wrap">
+        <div class="term flex center-x mb-60">
+            {{- range .Page.Params.Terms -}}
+                <div class="snip capitalize border-all rounded-full py-05 pl-15 pr-15">{{ . }}</div>
+            {{- end -}}
+        </div>
+        <div class="acts flex center-x mb-60">
+            <div class="lside flex center-x">
+                <div class="icon sm la-01 border-all rounded-full pa-05">{{ partial "lib/icon" "message-circle" }}</div>
+                <div class="icon sm la-01 border-all rounded-full pa-05">{{ partial "lib/icon" "flag" }}</div>
+            </div>
+            <hr>
+            <div class="rside flex center-x ">
+                <div class="icon sm la-01 border-all rounded-full pa-05 ml-10">{{ partial "lib/icon" "bookmark" }}</div>
+                <div class="icon sm la-01 border-all rounded-full pa-05">{{ partial "lib/icon" "share-2" }}</div>
+            </div>
+        </div>
+        <div class="bios">
+            <div class="grid">
+                <div class="avatar rounded-full overflow-hidden">
+                    {{- partial "parted/avatar/user-62.html" . -}}
+                </div>
+                <div class="profil ml-10">
+                    <h2 class="text-xl font-bold mb-00 mt-00">Stories By {{ .Page.Params.Metadata.Author }}</h2>
+                    {{ partial "parted/profile/get-describe" . }}
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

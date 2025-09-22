@@ -1,0 +1,90 @@
+@import "../../../../../css/wrap/m-00.scss";
+@import "../../../../../css/wrap/m-10.scss";
+@import "../../../../../css/wrap/m-15.scss";
+@import "../../../../../css/wrap/m-20.scss";
+@import "../../../../../css/wrap/m-25.scss";
+@import "../../../../../css/wrap/m-30.scss";
+@import "../../../../../css/wrap/m-40.scss";
+@import "../../../../../css/wrap/m-50.scss";
+@import "../../../../../css/wrap/m-60.scss";
+@import "../../../../../css/wrap/m-70.scss";
+@import "../../../../../css/wrap/p-10.scss";
+@import "../../../../../css/wrap/p-15.scss";
+
+
+@import "head/hero.scss";
+@import "head/lead.scss";
+
+
+#item{
+    margin-top: 6rem;
+}
+
+ul, li{
+    list-style: none;
+}
+
+hr{ 
+    width: 100%; 
+}
+
+
+.boxs-list{
+
+    .card.list{
+        padding: 1.95rem 0;
+        grid-template-columns: calc( 100% - 1rem );
+        grid-gap: 2rem;
+        .thumb{
+            display: none;
+        }
+    }
+
+    .list-1{
+        .card.list{
+            .thumb{
+                display: block;
+            }
+        }
+    }
+
+    .item{
+        border-bottom: 1px solid var(--line-01);
+    }
+
+    .item:nth-last-child(1){
+        border-bottom: 0px;
+    }
+} 
+
+
+@media only screen and( min-width: 1080px ) {
+
+    #item {
+
+        .rows{
+            grid-template-columns: 28% 62%;
+            justify-content: space-between;
+        }
+
+        #div1{
+            grid-column: 2;
+            grid-row: 1;
+
+            h2{
+                text-wrap: nowrap;
+            }
+        }
+        #div2{
+            grid-column: 1;
+            grid-row: 1;
+       }
+    }
+
+
+    .boxs-rows{
+        grid-template-columns: repeat( 3, calc( 33.333% - 3% ));
+        justify-content: space-between;
+        grid-gap: 3%;
+    }
+}

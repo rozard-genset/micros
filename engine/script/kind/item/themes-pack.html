@@ -1,0 +1,32 @@
+<!-- variable -->
+{{- $themes := partial "lib/system/themes.html" . -}}
+{{- $sected := partial "lib/system/module.html" . -}}
+{{- $layout := partial "lib/system/layout.html" . -}}
+{{- $kinder := partial "lib/system/routes.html" . -}}
+
+<!-- theming -->
+{{- $link_css := resources.Get "scripts/themes/default/user/main/css/pack.scss" -}}
+{{- $link_jsx := resources.Get "scripts/themes/default/user/main/jsx/pack.js"   -}}
+
+
+{{- $based_css := printf "scripts/themes/default/%s/%s/css/pack.scss" $kinder $layout  -}}
+{{- $based_jsx := printf "scripts/themes/default/%s/%s/jsx/pack.js"   $kinder $layout  -}}
+
+{{- $theme_css := printf "scripts/themes/%s/%s/main/css/pack.scss" $themes $kinder -}}
+{{- $theme_jsx := printf "scripts/themes/%s/%s/main/jsx/pack.js"   $themes $kinder -}}
+
+{{- $model_css := printf "scripts/themes/%s/%s/%s/css/pack.scss" $themes $kinder $layout -}}
+{{- $model_jsx := printf "scripts/themes/%s/%s/%s/jsx/pack.js"   $themes $kinder $layout -}}
+
+
+{{- range ( slice $based_css $theme_css $model_css  ) -}}
+    {{- with resources.Get . -}}{{- $link_css = . -}}{{- end -}}
+{{- end -}}
+
+{{- range ( slice $based_jsx $theme_jsx $model_jsx ) -}}
+    {{- with resources.Get . -}}{{- $link_jsx = . -}}{{- end  -}}
+{{- end -}}
+
+
+{{- .Store.Add "pack_css" $link_css -}}
+{{- .Store.Add "pack_jsx" $link_jsx -}}

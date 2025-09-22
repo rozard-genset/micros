@@ -1,0 +1,21 @@
+{{- if .IsHome -}}
+    home
+{{- else if .IsSection -}}
+
+    {{- .Section | urlize | safe.HTMLAttr -}}
+
+{{- else if .IsPage -}}
+
+    {{- if and ( ne .Section "" ) ( ne .Section "page" ) -}}
+
+        {{- .Section | urlize | safe.HTMLAttr -}}
+
+    {{- else -}}
+
+        {{- $slug := replace .Page.RelPermalink  "/page/" "" -}}
+        {{- $slug = replace $slug  "/" ""  -}}
+        {{- $slug | urlize | safe.HTMLAttr -}}
+
+    {{- end -}}
+
+{{- end -}}

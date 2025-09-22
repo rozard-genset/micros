@@ -1,0 +1,27 @@
+<!-- styles -->
+{{- $style_data := slice  -}}
+{{- $style_dest := .Store.Get "dest_css" -}}
+
+{{- range ( sort ( .Store.Get "head_css" ) | uniq ) -}}
+    {{- with resources.Get . -}}
+        {{- $style_data = $style_data | append ( resources.Get . | toCSS ) -}}
+    {{- end -}}
+{{- end -}}
+
+{{- $path := $style_data | resources.Concat $style_dest | minify -}}
+{{- with $path -}}<style>{{- .Content | safeCSS -}}</style>{{- end -}}
+
+
+<!-- script -->
+{{- $script_data := slice  -}}
+{{- $script_dest := .Store.Get "dest_jsx" -}}
+{{- $script_opts := dict "minify" (not hugo.IsDevelopment) "sourceMap" (cond hugo.IsDevelopment "external" "") "targetPath" $script_dest -}}
+
+{{- range ( sort ( .Store.Get "head_jsx" ) | uniq ) -}}
+    {{- if resources.Get . -}}
+        {{- $script_data = $script_data | append ( resources.Get . ) -}}
+    {{- end -}}
+{{- end -}}
+
+{{- $path := $script_data | resources.Concat $script_dest | minify  -}}
+{{- with $path | js.Build $script_opts -}}<script>{{- .Content | safeJS -}}</script>{{- end -}}

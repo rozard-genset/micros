@@ -1,0 +1,11 @@
+<!-- variable -->
+{{- $skels := "themes/default/page/main/skel/" -}}
+{{- $main1 := printf "%s/main-1.html" $skels -}}
+{{- $main2 := printf "%s/main-2.html" $skels -}}
+{{- $main3 := printf "%s/main-3.html" $skels -}}
+
+<main id="page" class="main">
+    {{- partial $main1 . -}}
+    {{- partial $main2 . -}}
+    {{- partial $main3 . -}}
+</main>

@@ -1,0 +1,21 @@
+// TABS
+.tabs-item{
+	position: fixed;
+	width: 0;
+	opacity: 0;
+	overflow: hidden;
+	transition: 100ms;
+}
+
+.tabs-item.open{
+	position: relative;
+	width: 100%;
+	height: auto;
+	opacity: 1;
+		overflow: hidden;
+	transition: 100ms;
+}
+
+.tab-action, .tab-action:hover{
+	cursor: pointer;
+}

@@ -1,0 +1,54 @@
+#term{
+
+    ul, li{
+        list-style: none;
+    }
+
+    .card.text{
+        display: flex;
+        .thumb, img{
+            width: 110px;
+            height: 110px;
+        }
+
+        .metas{
+            margin-left: 2rem;
+        }
+
+        .author img{
+            width: 32px;
+            height: 32px;
+        }
+    }
+
+  
+}
+
+
+
+@media only screen and (min-width: 480px) {
+
+}
+
+
+@media only screen and (min-width: 768px) {
+
+}
+
+
+@media only screen and (min-width: 1024px) {
+
+}
+
+
+@media only screen and (min-width: 1280px) {
+
+    #term{
+       
+    }
+}
+
+
+@media only screen and (min-width: 1536px) {
+
+}

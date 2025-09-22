@@ -1,0 +1,6 @@
+<div id="tumb" class="block tumb">
+    <h1> My Name is {{ .data.name }} </h1>
+    <h1> Iam {{ .data.desc }} </h1>
+</div>
+
+{{- partial "lib/widget.html" ( dict "type" "share" "model" "main"  ) -}}

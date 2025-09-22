@@ -1,0 +1,25 @@
+<!-- get layout -->
+{{- $layout := "main" -}}
+{{- $themes := partial "lib/system/themes.html" . -}}
+{{- $sected := partial "lib/system/module.html" . -}}
+{{- $models := partial "lib/format/models.html" . -}}
+{{- $routes := partial "lib/system/routes.html" . -}}
+
+{{- $module := printf "partials/%s/module/%s/%s/render.html" $sected $routes .Params.layout -}}
+{{- $themes := printf "partials/themes/%s/%s/%s/render.html" $sected $routes .Params.layout -}}
+{{- $skiner := printf "partials/themes/%s/module/%s/%s/render.html" $sected $routes .Params.layout -}}
+
+
+{{- if and ( $themes ) ( templates.Exists $themes ) -}}
+    {{- $layout = ( .Params.layout | urlize ) -}}
+{{- end -}}
+
+{{- if and ( $module ) ( templates.Exists $module ) -}}
+    {{- $layout = ( .Params.layout | urlize ) -}}
+{{- end -}}
+
+{{- if and ( $skiner ) ( templates.Exists $skiner ) -}}
+    {{- $layout = ( .Params.layout | urlize ) -}}
+{{- end -}}
+
+{{- return $layout -}}

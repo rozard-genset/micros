@@ -1,0 +1,8 @@
+<div class="menu mb-30">
+    <h2 class="title text-md font-bold capitalize mb-20 mt-00">{{ .Site.Params.Footer.head_3 }}</h2>
+    <div class="item">
+        <ul>
+        {{- range .Site.Menus.footer_top_03 -}}<li class="mb-10"><a href="{{ .URL }}" class="text-sm">{{ .Name }}</a></li>{{- end -}}
+        </ul>
+    </div>
+</div>

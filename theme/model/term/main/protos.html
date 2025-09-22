@@ -1,0 +1,9 @@
+<!-- variable -->
+{{- $part := "themes/default/term/main/lazy" -}}
+{{- $menu := printf "%s/menu.html" $part -}}
+{{- $feat := printf "%s/feat.html" $part -}}
+{{- $team := printf "%s/team.html" $part -}}
+{{- $join := printf "%s/join.html" $part -}}
+
+<!-- render -->
+{{- partial $menu . -}}{{- partial $feat . -}}{{- partial $team . -}}{{- partial $join . -}}

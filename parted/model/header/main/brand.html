@@ -1,0 +1,12 @@
+{{- $logo := resources.Get "image/logo.webp" }}{{ $name := "Rozard" -}}
+{{- with .Site.Params.Profile.Logo -}}{{- $logo =  resources.Get . -}}{{- end -}}
+{{- with .Site.Title -}}{{- $name = . -}}{{- end -}}
+{{- $logo = $logo.Resize "39x webp" -}}
+
+
+<a id="brand" href="/" class="flex center-x">
+    <img class="logo" src="{{ $logo.RelPermalink }}" width="39" height="39" alt="Organization Logo">
+    {{ if eq .Site.Params.System.Name true }}
+        <h1 class="ml-10"> {{ $name }}</h1>
+    {{ end }}
+</a>

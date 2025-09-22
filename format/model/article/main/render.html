@@ -1,0 +1,22 @@
+<article id="format-article">
+    <div class="mb-50">
+        <h1 class="title mb-00 font-bold">{{ .Title }}</h1>
+        <div class="meta flex center-x mb-40">
+            <div class="lside flex center-x">
+                <div class="avatar rounded-full overflow-hidden">{{- partial "parted/avatar/user-32.html" . -}}</div>
+                <div class="author text-sm mt-00 mb-00 ml-20">{{- index .Page.Params.metadata.author 0 -}}</div>
+                <div class="readtime text-sm ml-20">{{ printf "%d min red" .ReadingTime }}</div>
+                <div class="lastmods text-sm ml-10">{{ .Lastmod | time.Format "January 02, 2006" }} </div>
+            </div>
+            <div class="rside flex center-x ml-a">
+                <div class="icon sm la-01 border-all rounded-full">{{ partial "lib/icon" "bookmark" }}</div>
+                <div class="icon sm la-01 border-all rounded-full">{{ partial "lib/icon" "headphones" }}</div>
+                <div class="icon sm la-01 border-all rounded-full">{{ partial "lib/icon" "share-2" }}</div>
+            </div>
+        </div>
+        <div class="thum">
+            {{ partial "format/article/main/part/thumb-feat.html" . }}
+        </div>
+    </div>
+    {{- .Content -}}
+</article>

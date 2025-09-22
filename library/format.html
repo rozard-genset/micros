@@ -1,0 +1,20 @@
+{{- $themes := partial "lib/system/themes.html" . -}}
+{{- $sected := partial "lib/system/module.html" . -}}
+{{- $format := partial "lib/format/medias.html" . -}}
+{{- $models := partial "lib/format/models.html" . -}}
+
+
+{{- $paths :=  printf "format/article/main/render.html" -}}
+{{- $model :=  printf "format/%s/%s/render.html"           $format $models  -}}
+{{- $modul :=  printf "%s/format/%s/%s/render.html"        $sected $format $models -}}
+{{- $theme :=  printf "themes/%s/format/%s/%s/render.html" $themes $format $models -}}
+
+
+{{ range ( slice $paths $model $modul $theme )  }}
+    {{- if templates.Exists ( printf "partials/%s" . ) -}}{{- $paths = . -}}{{- end -}}
+{{ end }}
+
+
+{{- if templates.Exists ( printf "partials/%s" $paths ) -}}
+    {{- partial $paths . -}}
+{{- end -}}

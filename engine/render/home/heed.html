@@ -1,0 +1,29 @@
+<!-- globvar -->
+{{- $render := "" -}}
+
+{{- $themes := "default" -}}
+{{- with .Site.Params.System.Themes -}}{{- $themes = ( . | urlize ) -}}{{- end -}}
+
+{{- $layout := "main" -}}
+{{- with .Page.Params.Module.Layout -}}{{- $layout = ( . | urlize ) -}}{{- end -}}
+
+
+<!-- models -->
+{{- $based_basic := printf "themes/default/home/main/layers.html" -}}
+{{- $based_theme := printf "themes/%s/home/main/layers.html" $themes -}}
+{{- $based_model := printf "themes/%s/home/%s/layers.html"   $themes $layout -}}
+
+
+<!-- module -->
+{{- range ( slice $based_basic $based_theme $based_model ) -}}
+    {{- if templates.Exists ( printf "partials/%s" . ) -}}
+        {{- $render = . -}}
+    {{- end -}}
+{{- end -}}
+
+
+
+<!-- render -->
+{{- if templates.Exists ( printf "partials/%s" $render ) -}}
+    {{- partial $render . -}}
+{{- end -}}

@@ -1,0 +1,60 @@
+
+{{- $tops := "" -}}
+{{- $site := .site -}}
+{{- $sums := 0 -}}
+{{- $ctx  := .ctx -}}
+
+<div id="article" class="query-1">
+    <div class="divide flex">
+                <div class="right">
+            <div class="subhead mb-65 ">
+                <div class="title">
+                    <h2 class="text-5xl mt-00 mb-10">{{ .data.head }}</h2>
+                    <h3 class="text-2xl mt-10">{{ .data.lead }}</h3>
+                </div>
+                <div class="action ml-a">
+                    <a href="/stories" class="flex center-x">
+                        <h2 class="text-xl mt-00 mb-00 mr-20">Hear More Stories</h2>
+                        <div class="icon md border-all rounded-full">
+                            {{ partial "lib/icon" "arrow-right" }}
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="listing">
+                {{- range first 3 ( where .ctx.RegularPagesRecursive.ByDate "Section" "stories" ) -}}{{- if ne .Title $tops -}}
+                <a href="{{ .RelPermalink }}" class="card flex mb-25">
+                    <div class="texts">
+                        <h2 class="text-xl font-bold mt-00">{{- .Title -}}</h2>
+                        <p class="text-md">{{- .Page.Params.Description -}}</p>
+                    </div>
+                    <div class="image">
+                        {{- partial "blocks/default/query/main/thumb-squares.html" . -}}
+                    </div>
+                </a>
+                {{ $sums = math.Sum $sums 1 }}{{ if gt 3 $sums }}<hr class="mb-25">{{ end }}
+                {{- end -}}{{- end -}}
+            </div>
+        </div>
+        <div class="left">
+            {{- range first 1 (where .ctx.Site.RegularPages "Section" "stories") -}}
+            <a href="{{ .RelPermalink }}" class="card">
+                <div class="image">{{- partial "blocks/default/query/main/thumb-feature.html" . -}}</div>
+                <div class="metas">
+                    <h2 class="text-2xl font-bold">{{ .Title }}</h2>
+                    <p class="text-md mb-30"> {{- .Page.Params.Description -}}</p>
+                    <div class="author flex center-x">
+                        {{- with .Page.Params.Metadata.Author -}}
+                            {{- $cover := partial "blocks/default/query/main/thumb-authors.html"  ( dict "ctx" . "site" $ctx "name" . ) -}}
+                            <div class="box flex center-x">{{ $cover }}</div>
+                        {{- end -}}
+                        <h2 class="text-xs font-bold mt-00 mb-00 ml-20 mr-20"> {{- .Page.Params.Metadata.Author -}}</h2>
+                    </div>
+                </div>
+            </a>{{- $tops = .Title -}}{{- end -}}
+        </div>
+    </div>
+</div>
+ 
+
+

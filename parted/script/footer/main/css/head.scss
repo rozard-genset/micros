@@ -1,0 +1,58 @@
+footer{
+	margin-top: 5rem;
+    margin-bottom: 0;
+    .top{ display: block; }
+    .logo{
+        min-width: 50px;
+        min-height: 50px;
+        img{ object-fit: contain; }
+    }
+    ul{ list-style: none; }
+    .top .info{ width: 100%; }
+    .top .menu{
+        width: 20%;
+        margin: 0 auto;
+    }
+}
+
+@media only screen and ( min-width: 480px ) {
+
+    footer{
+        .top .info{
+            width: 100%;
+            .text{ display: flex; }
+            .desc{
+                width: 60%;
+                margin-right: 30px;
+            }
+        }
+        .top .menu{
+            width: 20%;
+            margin: 0 auto;
+        }
+    }
+}
+
+@media only screen and (min-width: 768px) {
+     footer{
+        .top .info{
+            .desc{
+                width: 45%;
+            }
+        }
+    }
+}
+
+@media only screen and ( min-width: 1024px ) {
+
+    footer{
+        .top{ display: flex; }
+        .top .info{
+            width: 40%;
+            .text{ display: block; }
+            .desc{ width: 100%; }
+        }
+        .top .menu{ width: 120px; }
+        .nav{ margin-left: auto; }
+    }
+}

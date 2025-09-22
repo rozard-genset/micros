@@ -1,0 +1,27 @@
+{{- define "hooks_head" -}}
+    {{- partial "corest/metas/based.html" . -}}
+    {{- partial "corest/metas/graph.html" . -}}
+    {{- partial "corest/script/kind/page-head.html" . -}}
+    {{- partial "corest/metas/jsonld.html" . -}}
+{{- end -}}
+
+
+
+{{- define "hooks_navs" -}}
+    {{- partial "corest/render/page/heed.html" . -}}
+    {{- partial "corest/render/part/navs.html" . -}}
+{{- end -}}
+
+
+
+{{- define "hooks_main" -}}
+    {{- partial "corest/render/page/main.html" . -}}
+{{- end -}}
+
+
+
+{{- define "hooks_foot" -}}
+    {{- partial "corest/render/part/foot.html" . -}}
+    {{- partial "corest/script/kind/page-pack.html" . -}}
+    {{- partial "corest/render/page/temp.html" . -}}
+{{- end -}}

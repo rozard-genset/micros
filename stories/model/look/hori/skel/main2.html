@@ -1,0 +1,6 @@
+{{- $view := "themes/default/look/main/view" -}}
+{{- $book := printf "%s/book.html" $view -}}
+{{- $pick := printf "%s/pick.html" $view -}}
+{{- $term := printf "%s/term.html" $view -}}
+
+<div id="main-2">{{- partial $term . -}}{{- partial $book . -}}{{- partial $pick . -}}</div> 

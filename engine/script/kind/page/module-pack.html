@@ -1,0 +1,33 @@
+<!-- variable -->
+{{- $themes := partial "lib/system/themes.html" . -}}
+{{- $sected := partial "lib/system/module.html" . -}}
+{{- $layout := partial "lib/system/layout.html" . -}}
+{{- $kinder := partial "lib/system/routes.html" . -}}
+
+
+<!-- storing -->
+{{- $link_css := resources.Get "scripts/stories/module/page/main/css/pack.scss" -}}
+{{- $link_jsx := resources.Get "scripts/stories/module/page/main/jsx/pack.js" -}}
+
+
+<!-- modeling -->
+{{- $based_css := printf "scripts/%s/module/%s/%s/css/pack.scss" $sected $kinder $layout -}}
+{{- $based_jsx := printf "scripts/%s/module/%s/%s/jsx/pack.js"   $sected $kinder $layout -}}
+
+{{- $theme_css := printf "scripts/theme/%s/module/%s/%s/%s/css/pack.scss" $themes $sected $kinder $layout -}}
+{{- $theme_jsx := printf "scripts/theme/%s/module/%s/%s/%s/jsx/pack.js"   $themes $sected $kinder $layout -}}
+
+
+<!-- apending -->
+{{- range ( slice $based_css $theme_css ) -}}
+    {{- with resources.Get . -}}{{- $link_css = . -}}{{- end -}}
+{{- end -}}
+
+{{- range ( slice $based_jsx $theme_jsx ) -}}
+    {{- with resources.Get . -}}{{- $link_jsx = . -}}{{- end  -}}
+{{- end -}}
+
+
+<!-- storing -->
+{{- .Store.Add "pack_css" $link_css -}}
+{{- .Store.Add "pack_jsx" $link_jsx -}}

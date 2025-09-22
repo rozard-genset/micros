@@ -1,0 +1,39 @@
+
+
+#home header{
+	margin-bottom: 0;
+}
+
+.block.globe{
+
+	padding: 7.5rem 0;
+	.box{
+		--size: 360px;
+		height: var(--size);
+		position: relative;
+		margin: auto;
+	}
+
+	.wrap{
+		overflow: hidden;
+		padding: 7vh 0;
+	}
+
+	.overlay, .background{
+		--size: 360px;
+		height: var(--size);
+		position: absolute;
+		top: 0;
+	}
+
+	.overlay{
+		width: 90%;
+		z-index: 3;
+	}
+
+	@media screen and ( min-width: 620px) {
+		.overlay{
+			z-index: 3;
+		}
+	}
+}

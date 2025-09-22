@@ -1,0 +1,39 @@
+<!-- globvar -->
+{{- $render := "" -}}
+
+{{- $themes := "default" -}}
+{{- with .Site.Params.System.Themes -}}{{- $themes  = ( . | urlize ) -}}{{- end -}}
+
+{{- $layout := "main" -}}
+{{- with .Page.Params.Module.Layout -}}{{- $layout = ( . | urlize ) -}}{{- end -}}
+
+{{- $module := "default" -}}
+{{- with .Section -}}{{- $module  = ( . | urlize ) -}}{{- end -}}
+
+
+<!-- models -->
+{{- $based_theme := printf "themes/default/term/main/layers.html" -}}
+{{- $theme_cores := printf "themes/%s/term/main/layers.html" $themes   -}}
+{{- $theme_model := printf "themes/%s/term/%s/layers.html"   $themes  $layout -}}
+
+{{- $modul_based := printf "module/default/term/main/layers.html" -}}
+{{- $model_based := printf "module/default/term/%s/layers.html" $layout -}}
+{{- $modul_cores := printf "module/%s/term/main/layers.html" $module   -}}
+{{- $modul_model := printf "module/%s/term/%s/layers.html"   $module  $layout -}}
+
+{{- $theme_modul := printf "themes/%s/module/%s/layout/term/main/layers.html" $themes  $module  -}}
+{{- $theme_skins := printf "themes/%s/module/%s/layout/term/%s/layers.html"   $themes  $module  $layout -}}
+
+
+<!-- layout -->
+{{- range ( slice $based_theme $theme_cores $theme_model $modul_based $modul_cores $modul_model $theme_modul $theme_skins ) -}}
+    {{- if templates.Exists ( printf "partials/%s" . )  -}}
+        {{- $render = . -}}
+    {{- end -}}
+{{- end -}}
+
+
+<!-- render -->
+{{- if templates.Exists ( printf "partials/%s" $render )  -}}
+    {{- partial $render . -}}
+{{- end -}}

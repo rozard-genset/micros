@@ -1,0 +1,9 @@
+{{- $total := 10 -}}
+{{- with .line -}}{{- $total = . -}}{{- end -}}
+<div class="loader main">
+    {{ range $total }}
+    <div class="animated-background">
+        <div class="background-masker btn-divide-left"></div>
+    </div>
+    {{ end }}
+</div>

@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="{{ site.Language.LanguageCode }}" dir="{{ or site.Language.LanguageDirection `ltr` }}">
+<head>
+	{{- block "hooks_head" . -}}{{- end -}}
+</head>
+<body id='{{- partial "lib/system/unique.html" . -}}'>
+	{{- block "hooks_navs" . -}}{{- end -}}
+	{{- block "hooks_main" . -}}{{- end -}}
+	{{- block "hooks_foot" . -}}{{- end -}}
+</body>
+</html>

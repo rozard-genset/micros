@@ -1,0 +1,39 @@
+#box-2{
+    h2 {
+        text-wrap: nowrap;
+        padding: 0 1.5rem 0 0;
+    }
+
+}
+
+
+
+@media only screen and (min-width: 480px) {
+
+}
+
+
+@media only screen and (min-width: 768px) {
+
+}
+
+
+@media only screen and (min-width: 1024px) {
+
+    #box-2{
+        .rows{
+            grid-template-columns: repeat( 3, calc( 33.333% - 3% ));
+            justify-content: space-between;
+        }
+    }
+}
+
+
+@media only screen and (min-width: 1280px) {
+
+}
+
+
+@media only screen and (min-width: 1536px) {
+
+}

@@ -1,0 +1,44 @@
+<!-- globvar -->
+{{- $themes := partial "lib/system/themes.html" . -}}
+{{- $sected := partial "lib/system/module.html" . -}}
+
+
+<!-- storing -->
+{{- $link_css := .Store.Get "pack_css" -}}
+{{- $link_jsx := .Store.Get "pack_jsx" -}}
+
+
+{{- if .Page.Params.Blocks -}}{{- range .Page.Params.Blocks -}}
+
+
+    <!-- modeling -->
+    {{- $based_css := printf "scripts/blocks/%s/%s/%s/css/pack.scss" .render.type .render.pool .render.name -}}
+    {{- $based_jsx := printf "scripts/blocks/%s/%s/%s/jsx/pack.js"   .render.type .render.pool .render.name -}}
+
+    {{- $theme_css := printf "scripts/themes/%s/blocks/%s/%s/%s/css/pack.scss" $themes .render.type .render.pool .render.name -}}
+    {{- $theme_jsx := printf "scripts/themes/%s/blocks/%s/%s/%s/jsx/pack.js"   $themes .render.type .render.pool .render.name -}}
+
+    {{- $modul_css := printf "scripts/module/%s/blocks/%s/%s/%s/css/pack.scss" $sected .render.type .render.pool .render.name -}}
+    {{- $modul_jsx := printf "scripts/module/%s/blocks/%s/%s/%s/jsx/pack.js"   $sected .render.type .render.pool .render.name -}}
+
+    {{- $skins_css := printf "scripts/themes/%s/module/%s/blocks/%s/%s/%s/css/pack.scss" $themes $sected .render.type .render.pool .render.name -}}
+    {{- $skins_jsx := printf "scripts/themes/%s/module/%s/blocks/%s/%s/%s/jsx/pack.js"   $themes $sected .render.type .render.pool .render.name -}}
+
+    
+    <!-- appended -->
+    {{- range (slice $based_css $theme_css $modul_css $skins_css ) -}}
+        {{- with resources.Get . -}}{{- $link_css = $link_css | append . -}}{{- end -}}
+    {{- end -}}
+
+    {{- range (slice $based_jsx $theme_jsx $modul_jsx $skins_jsx ) -}}
+        {{- with resources.Get . -}}{{- $link_jsx = $link_jsx | append . -}}{{- end -}}
+    {{- end -}}
+
+
+{{- end -}}{{- end -}}
+
+
+<!-- stroringer -->
+{{- .Store.Add "pack_css" $link_css -}}
+{{- .Store.Add "pack_jsx" $link_jsx -}}
+

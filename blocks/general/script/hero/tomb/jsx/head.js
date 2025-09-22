@@ -1,0 +1,1 @@
+console.log('Blocks : tomb | shift : critical | scope : hero | source : default | type : script | status : loaded')

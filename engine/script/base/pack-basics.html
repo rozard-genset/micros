@@ -1,0 +1,22 @@
+<!-- globvar -->
+{{- $themes := partial "lib/system/themes.html" .  -}}
+
+
+<!-- storing -->
+{{- $link_css := resources.Get "scripts/themes/default/core/css/pack.scss" -}}
+{{- $link_jsx := resources.Get "scripts/themes/default/core/jsx/pack.js"   -}}
+
+
+<!-- modeling -->
+{{- $theme_css := printf "scripts/themes/%s/core/css/pack.scss" $themes -}}
+{{- $theme_jsx := printf "scripts/themes/%s/core/jsx/pack.js"   $themes -}}
+
+
+<!-- appended -->
+{{- with resources.Get $theme_css -}}{{- $link_css = . -}}{{- end -}}
+{{- with resources.Get $theme_jsx -}}{{- $link_jsx = . -}}{{- end -}}
+
+
+<!-- storing -->
+{{- .Store.Add "pack_css" $link_css -}}
+{{- .Store.Add "pack_jsx" $link_jsx -}}

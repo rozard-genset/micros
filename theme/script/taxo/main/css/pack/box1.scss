@@ -1,0 +1,49 @@
+#box-1{
+
+   .main{
+        h2 {
+            text-wrap: nowrap;
+            padding: 0 1.5rem 0 0;
+        }
+    }
+}
+
+
+
+@media only screen and (min-width: 480px) {
+
+}
+
+
+@media only screen and (min-width: 768px) {
+
+}
+
+
+@media only screen and (min-width: 1024px) {
+
+}
+
+
+@media only screen and (min-width: 1280px) {
+
+    #box-1{
+        .leaf{
+            grid-template-columns: 62% 28%;
+            justify-content: space-between;
+        }
+
+        .main{
+            .leaf{
+                grid-template-columns: repeat(2, calc( 50% - 1.5rem) );
+                justify-content: space-between;
+                grid-gap: 3rem;
+            }
+        }
+    }
+}
+
+
+@media only screen and (min-width: 1536px) {
+
+}

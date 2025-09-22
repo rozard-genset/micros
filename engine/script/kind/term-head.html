@@ -1,0 +1,50 @@
+<!-- variable -->
+{{- $themes := partial "lib/system/themes.html" . -}}
+{{- $layout := partial "lib/system/layout.html" . -}}
+
+
+<!-- general -->
+{{- partial "corest/script/help/load-head.html" . -}}
+
+
+<!-- storing -->
+{{- $link_css := resources.Get "scripts/themes/default/term/main/css/head.scss" -}}
+{{- $link_jsx := resources.Get "scripts/themes/default/term/main/jsx/head.js"   -}}
+
+
+<!-- modeling -->
+{{- $based_css := printf "scripts/themes/default/term/main/css/head.scss" -}}
+{{- $based_jsx := printf "scripts/themes/default/term/main/jsx/head.js" -}}
+
+{{- $model_css := printf "scripts/themes/default/term/%s/css/head.scss" $layout -}}
+{{- $model_jsx := printf "scripts/themes/default/term/%s/jsx/head.js"   $layout -}}
+
+{{- $theme_css := printf "scripts/themes/%s/term/main/css/head.scss" $themes -}}
+{{- $theme_jsx := printf "scripts/themes/%s/term/main/jsx/head.js"   $themes -}}
+
+{{- $skins_css := printf "scripts/themes/%s/term/%s/css/head.scss" $themes $layout -}}
+{{- $skins_jsx := printf "scripts/themes/%s/term/%s/jsx/head.js"   $themes $layout -}}
+
+
+<!-- appends -->
+{{- range ( slice $based_css $model_css $theme_css $skins_css ) -}}
+    {{- with resources.Get . -}}{{- $link_css = . -}}{{- end -}}
+{{- end -}}
+
+{{- range ( slice $based_jsx $model_jsx $theme_jsx $skins_jsx ) -}}
+    {{- with resources.Get . -}}{{- $link_jsx = . -}}{{- end  -}}
+{{- end -}}
+
+
+<!-- register -->
+{{- .Store.Add "head_css" $link_css -}}
+{{- .Store.Add "head_jsx" $link_jsx -}}
+
+
+<!-- target -->
+{{- .Store.Set "dest_css" "assets/scripts/term/head.css" -}}
+{{- .Store.Set "dest_jsx" "assets/scripts/term/head.js"  -}}
+
+
+<!-- compile -->
+{{- partial "corest/script/help/make-head.html" . -}}

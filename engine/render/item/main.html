@@ -1,0 +1,38 @@
+<!-- system variable -->
+{{- $themes := partial "lib/system/themes.html" . -}}
+{{- $sected := partial "lib/system/module.html" . -}}
+{{- $layout := partial "lib/system/layout.html" . -}}
+{{- $kinder := partial "lib/system/routes.html" . -}}
+
+
+<!-- format variable -->
+{{- $models := partial "lib/format/models.html" . -}}
+
+
+<!-- store -->
+{{- $render := printf "themes/default/%s/main/render.html" $kinder -}}
+
+
+<!-- modul -->
+{{- $cores := printf "%s/module/%s/main/render.html"    $sected $kinder -}}
+{{- $based := printf "themes/%s/%s/%s/render.html"      $themes $kinder $layout -}}
+{{- $modul := printf "%s/module/%s/%s/render.html"      $sected $kinder $layout -}}
+
+
+{{- $model := printf "themes/%s/module/%s/layout/%s/%s/render.html" $themes $sected $kinder $layout -}}
+
+
+<!-- chekcs -->
+{{- range (slice $based $cores $modul $model ) -}}
+    {{- if templates.Exists ( printf "partials/%s" . ) -}}{{- $render = . -}}{{- end -}}
+{{- end -}}
+
+
+<!-- block -->
+{{- if .Page.Params.Blocks -}}{{- $render = printf "lib/blocks.html" -}}{{- end -}}
+
+
+<!-- render -->
+{{- if templates.Exists ( printf "partials/%s" $render )  -}}
+    {{- partial $render . -}}
+{{- end -}}

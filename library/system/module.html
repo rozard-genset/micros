@@ -1,0 +1,23 @@
+<!-- default -->
+{{- $module := "none" -}}
+
+
+<!-- courses -->
+{{ if or ( in .Site.Params.Module.Courses.Section .Section ) ( in ( slice "courses" "course" "classroom" ) .Section ) }}
+    {{- $module = "course" -}}
+{{ end }}
+
+
+<!-- profile -->
+{{ if or ( in .Site.Params.Module.Profile.Section .Section ) ( in ( slice "person" "profile" ) .Section  ) }}
+    {{- $module = "profile" -}}
+{{ end }}
+
+
+<!-- stories -->
+{{ if or ( in .Site.Params.Module.Stories.Section .Section ) ( in ( slice "stories" "article" ) .Section  ) }}
+    {{- $module = "stories" -}}
+{{ end }}
+
+
+{{- return $module -}}

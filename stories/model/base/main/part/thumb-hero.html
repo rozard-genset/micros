@@ -1,0 +1,28 @@
+{{- $image := resources.GetMatch "image/story-hero-3.png" -}}
+
+{{- if $image -}}
+    <picture>
+
+        {{- $xx := $image.Resize "580x webp q100" -}}
+        <source media="(width > 1360px)" srcset="{{ $xx.RelPermalink }}"/>
+
+        {{- $xl := $image.Resize "520x webp q100" -}}
+        <source media="(width > 1280px)" srcset="{{ $xl.RelPermalink }}"/>
+
+        {{- $lg := $image.Resize "420x webp q100" -}}
+        <source media="(width > 1080px)" srcset="{{ $lg.RelPermalink }}"/>
+
+        {{- $md := $image.Resize "480x webp q100" -}}
+        <source media="(width > 768px)" srcset="{{ $md.RelPermalink }}"/>
+
+        {{- $sm := $image.Resize "380x webp q100" -}}
+        <source media="(width > 480px)" srcset="{{ $sm.RelPermalink }}"/>
+              
+        {{- $xs := $image.Resize "280x webp q100" -}}
+        <source media="(width > 100px)" srcset="{{ $xs.RelPermalink }}"/>
+
+
+        <img src="{{ $image.RelPermalink }}" alt="{{ .Title }}" width="{{ $image.Width }}" height="{{ $image.Height }}" title="{{ .Title }}" fetchpriority="high"/>
+
+    </picture>
+{{- end -}}

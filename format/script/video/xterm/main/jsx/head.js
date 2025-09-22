@@ -1,0 +1,1 @@
+console.log('Format : xterm library head script loaded');

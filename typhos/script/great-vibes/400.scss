@@ -1,0 +1,11 @@
+@font-face {
+    font-family: "Great Vibes";
+    font-display: swap;
+	font-weight: 400;
+    src: url('/assets/typho/great-vibes/normal/400.ttf') format('truetype');
+}
+
+.font-type-great-vibes {
+	font-family: "Great Vibes", cursive;
+	font-style: normal;
+}

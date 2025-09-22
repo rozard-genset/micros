@@ -1,0 +1,15 @@
+{{- $part := "themes/default/page/main/part/"   -}}
+{{- $card := printf "%s/cardrelates.html" $part -}}
+{{- $page := partial "lib/themes/page-page-with-user.html" .  -}}
+<div id="more">
+    <div class="border-top border-bottom">
+        <div class="wrap">
+            <div class="head">
+                <h2 class="text-2xl font-bold"> More From {{ .Page.Params.Metadata.Author }}</h2>
+            </div>
+            <div class="leaf">
+                {{- range first 4 $page -}}{{  partial $card . }}{{- end -}}
+            </div>
+        </div>
+    </div>
+</div>

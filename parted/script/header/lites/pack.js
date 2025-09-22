@@ -1,0 +1,1 @@
+console.log('deffers header lite model script loaded');

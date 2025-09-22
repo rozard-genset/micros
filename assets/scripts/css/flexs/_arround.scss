@@ -1,0 +1,35 @@
+.around-xs {
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+}
+
+@media only screen and (min-width: 480px) {
+    .around-sm {
+        -ms-flex-pack: distribute;
+        justify-content: space-around;
+    }
+}
+@media only screen and (min-width: 768px) {
+    .around-md {
+        -ms-flex-pack: distribute;
+        justify-content: space-around;
+    }
+}
+@media only screen and (min-width: 1024px) {
+    .around-lg {
+        -ms-flex-pack: distribute;
+        justify-content: space-around;
+    }
+}
+@media only screen and (min-width: 1280px) {
+    .around-xl {
+        -ms-flex-pack: distribute;
+        justify-content: space-around;
+    }
+}
+@media only screen and (min-width: 1536px) {
+    .around-xxl {
+        -ms-flex-pack: distribute;
+        justify-content: space-around;
+    }
+}

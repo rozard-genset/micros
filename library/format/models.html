@@ -1,0 +1,4 @@
+<!-- get format model -->
+{{- $models := "main" }}
+{{- with .Params.format.model -}}{{- $models = .  -}}{{- end -}}
+{{- return $models -}}

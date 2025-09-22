@@ -1,0 +1,27 @@
+{{- $part := "themes/default/taxo/main/view/" -}}
+{{- $read := printf "%s/read.html" $part -}}
+{{- $pick := printf "%s/pick.html" $part -}}
+{{- $book := printf "%s/book.html" $part -}}
+{{- $term := printf "%s/term.html" $part -}}
+
+<div id="box-1" class="mb-60">
+    <div class="leaf grid">
+        <div class="main">
+            {{ range $index, $value := partial "lib/queries/page-list-all-term" . }}{{ if eq $index 0 }}
+            <div id="{{ .name | urlize }}" class="boxes grid">
+                <div class="head flex center-x mb-50">
+                    <h2 class="text-2xl border-right mt-00 mb-00">{{ .name }}</h2><hr>
+                </div>
+                <ul class="leaf grid">
+                    {{- range first 4 .list -}}
+                        <li class="item list-{{ math.Sum $index 1 }}">{{- partial "themes/default/taxo/main/part/cardbox.html" . -}}</li>
+                    {{- end -}}
+                </ul>
+            </div>
+            {{- end -}}{{- end -}}
+        </div>
+        <div class="side">
+            {{ partial $term . }}{{ partial $book . }}{{ partial $pick . }}
+        </div>
+    </div>
+</div>

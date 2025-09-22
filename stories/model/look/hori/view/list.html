@@ -1,0 +1,29 @@
+{{- $feat := "themes/default/look/main/part/thumb-square.html" -}}
+{{- $auth := "themes/default/look/main/part/thumb-authors.html" -}}
+{{- $icon := slice "bookmark" "heart" "share-2" -}}
+
+<div id="list">
+    <div class="head flex center-x mb-60">
+        <h2 class="text-4xl border-right mt-00 mb-00">Story Timeline</h2><hr>
+    </div>
+    <div class="leaf mb-60">
+        {{- range ( partial "lib/pageds/page-section.html" . ) -}}
+        <a class="flex mb-40" href="{{ .RelPermalink }}">
+            <div class="metas">
+                <h2 class="text-xl mt-00 mb-10">{{ .LinkTitle }}</h2>
+                <p class="text-lg mb-25 mr-20">{{- .Page.Params.Description -}}</p>
+                <div class="flex center-x">
+                    {{- range $icon -}}<div class="action icon md mr-15">{{ partial ( printf "icon/line/%s.svg" . ) }}</div>{{- end -}}
+                    <div class="author flex center-x ml-40">
+                        <div class="rounded-full overflow-hidden">{{- partial "parted/avatar/user-32.html" . -}}</div>
+                        <div class="text-md mt-00 mb-00 ml-10 mr-10">{{- .Page.Params.Metadata.Author -}}</div>
+                    </div>
+                    <div class="timedate font-bold text-md mt-00 ml-40">{{- printf "%d min read" .ReadingTime -}}</div>
+                </div>
+            </div>
+            <div class="image ml-a">{{- partial $feat . -}}</div>
+        </a><hr class="mb-40">
+        {{- end -}}
+        <div class="paginate">{{- partial "pagination.html" . -}}</div>
+    </div>
+</div>

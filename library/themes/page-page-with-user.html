@@ -1,0 +1,8 @@
+{{ $author := .Page.Params.Metadata.Author }}
+{{ $values := slice }}
+{{- range where .Site.RegularPages "Type" .Section  -}}
+    {{- if eq $author .Page.Params.Metadata.Author -}}
+        {{- $values = $values | append . -}}
+    {{- end -}}
+{{- end -}}
+{{- return $values -}}

@@ -1,0 +1,17 @@
+{{- $target :=  .Site.Params.Profile.Forums.Telegram  -}}
+
+{{- with .Parent.Page.Params.forums.telegram -}}
+    {{- $target = . -}}
+{{- end -}}
+
+
+{{- with .Params.forums.telegram -}}
+    {{- $target = . -}}
+{{- end -}}
+
+
+{{- if $target -}}
+    <div id="forum-telegram" class="forum" data-title="{{ .Title }}" data-uniqe="_-K1zvYW"></div>
+    {{- .Store.Add "parted_css" ( slice "scripts/parted/forum/tele/style.scss" ) -}}
+    {{- .Store.Add "parted_jsx" ( slice "scripts/parted/forum/tele/script.js"  ) -}}
+{{- end -}}

@@ -1,0 +1,55 @@
+#term{
+
+    ul, li{
+        list-style: none;
+    }
+
+    .leaf{
+        display: grid;
+        grid-template-columns: repeat(2, calc( 50% - 2rem ));
+        justify-content: space-between;
+    }
+}
+
+
+
+@media only screen and (min-width: 480px) {
+
+    #term{
+
+       .leaf{
+            grid-template-columns: repeat(3, calc( 33.333% - 2rem ));
+        }
+    }
+}
+
+
+@media only screen and (min-width: 768px) {
+
+    #term{
+
+        .leaf{
+            grid-template-columns: repeat(4, calc( 25% - 2rem ));
+        }
+    }
+}
+
+
+@media only screen and (min-width: 1024px) {
+
+}
+
+
+@media only screen and (min-width: 1280px) {
+
+    #term{
+        .leaf{
+            grid-template-columns: repeat(2, calc( 50% - 2rem ));
+        }
+    }
+}
+
+
+@media only screen and (min-width: 1536px) {
+
+}

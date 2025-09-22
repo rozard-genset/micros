@@ -1,0 +1,21 @@
+<!-- variable -->
+{{- $part := "themes/default/page/main/view/" -}}
+{{- $feat := printf "%s/feat.html" $part -}}
+{{- $tocs := printf "%s/tocs.html" $part -}}
+{{- $sent := printf "%s/sent.html" $part -}}
+{{- $rels := printf "%s/rels.html" $part -}}
+
+
+<main id="page" class="main">
+    <div class="">
+        <div id="feat" class="mb-60 border-top border-bottom">{{- partial $feat . -}}</div>
+        <div id="plan" class="wrap row">
+            <div id="main" class="col col-xs-12 col-lg-7 ml-a">
+                {{- partial "lib/format.html" . -}}
+            </div>
+            <div id="side" class="col col-xs-12 col-lg-4">
+                {{- partial $sent . -}}{{- partial $tocs . -}}{{- partial $rels . -}}
+            </div>
+        </div>
+    </div>
+</main>

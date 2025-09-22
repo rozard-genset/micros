@@ -1,0 +1,51 @@
+{{- $image := "" -}}
+
+{{- if .Page.Params.Metadata.thumb -}}
+    {{- $image = .Page.Resources.GetMatch .Page.Params.Metadata.thumb -}}
+{{ end }}
+
+{{- if .Page.Params.Module.Cover  -}}
+    {{- $image = .Page.Resources.GetMatch .Page.Params.Module.Cover -}}
+{{- end -}}
+
+
+{{- if $image -}}
+        {{- $respSizes := slice "420" "640" "920" -}}
+        {{- $dataSizes := "(min-width: 920px) 100vw, 50vw" -}}
+        {{- $actualImg := $image.Resize "420x webp" -}}
+        <picture>
+            <source
+                type="image/webp"
+                fetchpriority="high"
+                srcset="
+                {{- with $respSizes -}}
+                    {{- range $i, $e := . -}}
+                    {{- if ge $image.Width . -}}
+                    {{- if $i }}, {{ end -}}{{- ($image.Resize (printf "%sx%s" . " webp") ).RelPermalink }} {{ . }}w
+                    {{- end -}}
+                {{- end -}}
+                {{- end -}}"
+                sizes="{{ $dataSizes }}"
+            />
+            <source
+                type="image/jpeg"
+                fetchpriority="high"
+                srcset="
+                {{- with $respSizes -}}
+                    {{- range $i, $e := . -}}
+                    {{- if ge $image.Width . -}}
+                        {{- if $i }}, {{ end -}}{{- ($image.Resize (printf "%sx%s" . " jpg") ).RelPermalink }} {{ . }}w
+                    {{- end -}}
+                {{- end -}}
+                {{- end -}}"\
+                sizes="{{ $dataSizes }}"
+            />
+            <img class="rounded-lg"
+                src="{{ $actualImg.RelPermalink }}"
+                fetchpriority="high"
+                width="{{ $image.Width }}"
+                height="{{ $image.Height }}"
+                alt="{{ .Title  }} article feature image"
+            />
+        </picture>
+{{- end -}}

@@ -1,0 +1,32 @@
+{{ $image := "" }}
+
+{{- if .Page.Params.Metadata.thumb -}}
+    {{- $image = .Page.Resources.GetMatch .Page.Params.Metadata.thumb -}}
+{{- end -}}
+
+{{- if .Page.Params.Module.Cover -}}
+    {{- $image = .Page.Resources.GetMatch .Page.Params.Module.Cover -}}
+{{- end -}}
+
+
+{{- if $image -}}
+    <picture>
+
+        {{- $xl := $image.Resize "980x webp q100" -}}
+        <source media="(width > 1536px)" srcset="{{ $xl.RelPermalink }}" />
+
+        {{- $lg := $image.Resize "780x webp q100" -}}
+        <source media="(width > 1024px)" srcset="{{ $lg.RelPermalink }}" />
+
+        {{- $md := $image.Resize "780x webp q100" -}}
+        <source media="(width > 768px)" srcset="{{ $md.RelPermalink }}" />
+        
+        {{- $sm := $image.Resize "768x webp q100" -}}
+        <source media="(width > 480px)" srcset="{{ $sm.RelPermalink }}" />
+
+        {{- $xs := $image.Resize "480x webp q100" -}}
+        <source media="(width > 100px)" srcset="{{ $xs.RelPermalink }}" />
+
+        <img src="{{ $image.RelPermalink }}" class="image cover rounded-md" width="{{ $image.Width }}" height="{{ $image.Height }}" title="{{ .Title }}" alt="{{ .Title }} youtube embed image cover" fetchpriority="high">
+    </picture>
+{{- end -}}

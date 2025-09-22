@@ -1,0 +1,30 @@
+// LAZY
+
+.proto{
+	display: none;
+}
+
+.lazy-xs, .lazy-xs .loader {
+    display: inherit;
+}
+
+@media only screen and (min-width: 480px) {
+   .lazy-sm, .lazy-sm .loader {
+        display: inherit;
+    }
+}
+@media only screen and (min-width: 768px) {
+    .lazy-md, .lazy-md .loader {
+        display: inherit;
+    }
+}
+@media only screen and (min-width: 1024px) {
+    .lazy-lg, .lazy-lg .loader {
+        display: inherit;
+    }
+}
+@media only screen and (min-width: 1280px) {
+   .lazy-xl, .lazy-xl .loader {
+        display: inherit;
+    }
+}

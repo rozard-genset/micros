@@ -1,0 +1,45 @@
+<!-- globvar -->
+{{- $themes := partial "lib/system/themes.html" . -}}
+{{- $sected := partial "lib/system/module.html" . -}}
+{{- $format := partial "lib/format/medias.html" . -}}
+{{- $models := partial "lib/format/models.html" . -}}
+
+
+<!-- fallback -->
+{{- $link_css := printf "scripts/format/article/main/css/pack.scss" -}}
+{{- $link_jsx := printf "scripts/format/article/main/jsx/pack.js"   -}}
+
+
+{{- if .Page.Params.Format.Model -}}
+
+    {{- $cores_css := printf "scripts/format/%s/main/css/pack.scss" $format -}}
+    {{- $cores_jsx := printf "scripts/format/%s/main/jsx/pack.js"   $format -}}
+
+    {{- $based_css := printf "scripts/format/%s/%s/css/pack.scss" $format $models -}}
+    {{- $based_jsx := printf "scripts/format/%s/%s/jsx/pack.js"   $format $models -}}
+
+    {{- $themes_css := printf "scripts/themes/%s/format/%s/%s/css/pack.scss" $themes $format $models -}}
+    {{- $themes_jsx := printf "scripts/themes/%s/format/%s/%s/jsx/pack.js"   $themes $format $models -}}
+
+    {{- $module_css := printf "scripts/%s/format/%s/%s/css/pack.scss" $sected $format $models -}}
+    {{- $module_jsx := printf "scripts/%s/format/%s/%s/jsx/pack.js"   $sected $format $models -}}
+
+    {{- $models_css := printf "scripts/themes/%s/sected/%s/format/%s/%s/css/pack.scss" $themes $sected $format $models -}}
+    {{- $models_jsx := printf "scripts/themes/%s/sected/%s/format/%s/%s/jsx/pack.js"   $themes $sected $format $models -}}
+    
+    
+    <!-- appended -->
+    {{- range ( slice $cores_css $based_css $themes_css $module_css $models_css ) -}}
+        {{- with resources.Get . -}}{{- $link_css = . -}}{{- end -}}
+    {{- end -}}
+
+    {{- range ( slice $cores_jsx $based_jsx $themes_jsx $module_jsx $models_jsx ) -}}
+        {{- with resources.Get . -}}{{- $link_jsx = . -}}{{- end -}}
+    {{- end -}}
+
+{{- end -}}
+
+
+
+{{- .Store.Add "pack_css" $link_css -}}
+{{- .Store.Add "pack_jsx" $link_jsx -}}

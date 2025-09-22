@@ -1,0 +1,89 @@
+.flex{
+	display: flex;
+}
+
+.flex-inline{
+	display: inline-flex;
+}
+
+.block {
+	display: block;
+}
+
+.grid {
+	display: grid;
+}
+
+.center-a{
+	align-items: center;
+	justify-content: center;
+}
+
+.center-x{
+ 	align-items: center;
+}
+
+.center-y{
+ 	justify-content: center;
+}
+
+.content-between {
+	align-content: space-between;
+}
+
+.float-right{
+	float: right;
+}
+
+.float-left{
+	float: left;
+}
+
+.float-none{
+	float: none;
+}
+
+.clear-right{
+	clear: left;
+}
+
+.clear-left{
+	clear: right;
+}
+
+.clear-both{
+	clear: both;
+}
+
+.static{
+	position: static;
+}
+
+.fixed {
+	position: fixed;
+}
+
+.absolute {
+	position: absolute;
+}
+
+.relative{
+	position: relative;
+}
+
+.sticky{
+	position: sticky;
+}
+
+
+@media only screen and (max-width: 1024px) {
+	.desktop{
+		display: none;
+	}
+}
+
+@media only screen and (min-width: 1024px) {
+	.mobile{
+		display: none;
+	}
+}

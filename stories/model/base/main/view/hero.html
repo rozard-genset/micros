@@ -1,0 +1,20 @@
+{{- $feat := "stories/module/base/main/part/thumb-hero.html" -}}
+
+<div id="hero" class="grid center-x">
+    <div class="grid rows center-x">
+        <div class="thum">{{ partial $feat . }}</div>
+        <div class="lead">
+            <h1 class="mt-00">Tell Stories, Share Ideas</h1>
+            <div class="menu">
+                <a href="#" class="share flex center-x">
+                    <h2 class="text-xl mr-20">Share <span class="tablet">My</span> Stories</h2>
+                    <div class="icon md border-all rounded-full">{{- partial "/lib/icon" "arrow-right" -}}</div>
+                </a>
+                <a href="/{{.Section}}/look/" class="story flex center-x ml-20">
+                    <h2 class="text-xl mr-20"><span class="tablet">Stories</span> Timeline</h2>
+                    <div class="icon md border-all rounded-full">{{- partial "/lib/icon" "arrow-right" -}}</div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

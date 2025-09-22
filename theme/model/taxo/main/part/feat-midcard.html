@@ -1,0 +1,11 @@
+{{- $feat := "themes/default/base/main/part/thumb-feature.html" -}}
+{{- $auth := "themes/default/base/main/part/thumb-authors.html" -}}
+
+<a href="{{ .RelPermalink }}" class="card text">
+    <div class="thumb">{{- partial $feat . -}}</div>
+    <div class="metas mb-25">
+        <h2 class="text-xl font-bold mb-20 mt-00">{{- .Title -}}</h2>
+        <p class="text-sm">{{- .Page.Params.Description -}}</p>
+    </div> 
+</a>
+

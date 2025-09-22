@@ -1,0 +1,114 @@
+blockquote{
+	font-size: 1.6em;
+	margin:2.5rem 0;
+	color:var(--color-01);
+	padding:1.2em 30px 1.2em 75px;
+	border-left:3px solid var(--link-02-based) ;
+	line-height:1.6;
+	position: relative;
+	background:var(--background-02);
+
+	p{
+		margin-bottom: 0 !important;
+	}
+}
+
+blockquote::before{
+	font-weight: bold;
+	content: "\201C";
+	color:var(--button-02);
+	font-size:4em;
+	position: absolute;
+	left: 10px;
+	top:-10px;
+}
+
+
+blockquote::after{
+  	content: '';
+}
+
+
+blockquote {
+    strong, em{
+		font-size: 1rem;
+		display:block;
+		font-weight: 400;
+		color:var(--color-02);
+		font-style: normal !important;
+		margin-top:1em;
+    }
+
+    p{
+		font-size: 1.2rem !important;
+		margin-top: 0 !important;
+    }
+}
+
+
+
+
+@media only screen and (min-width: 480px) {
+
+	blockquote{
+		font-size: 1.7em;
+		width:80%;
+		margin:2.5rem 0;
+	}
+
+	blockquote::before{
+		font-size:4em;
+		position: absolute;
+	}
+
+
+	blockquote {
+		strong, em{
+			font-size: 1.1rem;
+		}
+
+		p{
+			font-size: 1.25rem !important;
+		}
+	}
+}
+
+@media only screen and (min-width: 768px) {
+    
+	blockquote{
+		width:60%;
+	}
+}
+
+@media only screen and (min-width: 1024px) {
+    
+	blockquote{
+		font-size: 1.8em;
+		width:60%;
+	}
+
+
+	blockquote {
+		strong, em{
+			font-size: 1.1rem;
+		}
+
+		p{
+			font-size: 1.3rem !important;
+		}
+	}
+}
+
+@media only screen and (min-width: 1280px) {
+    
+
+	blockquote {
+		p{
+			font-size: 1.4rem !important;
+		}
+	}
+}
+
+@media only screen and (min-width: 1536px) {
+
+}

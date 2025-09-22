@@ -1,0 +1,42 @@
+<!-- globvar -->
+{{- $themes := partial "lib/system/themes.html" . -}}
+{{- $sected := partial "lib/system/module.html" . -}}
+{{- $layout := partial "lib/system/layout.html" . -}}
+
+
+<!-- storing -->
+{{- $link_css := resources.Get "scripts/parted/header/main/css/pack.scss" -}}
+{{- $link_jsx := resources.Get "scripts/parted/header/main/jsx/pack.js"   -}}
+
+
+<!-- modeling -->
+{{- $protos_model_css := printf "scripts/parted/header/%s/css/pack.scss" $layout  -}}
+{{- $protos_model_jsx := printf "scripts/parted/header/%s/jsx/pack.js"   $layout  -}}
+
+{{- $themes_based_css := printf "scripts/themes/%s/parted/header/main/css/pack.scss" $themes -}}
+{{- $themes_based_jsx := printf "scripts/themes/%s/parted/header/main/jsx/pack.js"   $themes -}}
+
+{{- $themes_model_css := printf "scripts/themes/%s/parted/header/%s/css/pack.scss"  $themes $layout  -}}
+{{- $themes_model_jsx := printf "scripts/themes/%s/parted/header/%s/jsx/pack.js"    $themes $layout  -}}
+
+{{- $module_based_css := printf "scripts/sected/%s/header/main/css/pack.scss" $sected  -}}
+{{- $module_based_jsx := printf "scripts/sected/%s/header/main/jsx/pack.js"   $sected  -}}
+
+{{- $module_model_css := printf "scripts/sected/%s/header/%s/css/pack.scss"  $sected  $layout  -}}
+{{- $module_model_jsx := printf "scripts/sected/%s/header/%s/jsx/pack.js"    $sected  $layout  -}}
+
+
+<!-- appended -->
+{{- range ( slice $protos_model_css $themes_based_css $themes_model_css $module_based_css $module_model_css ) -}}
+    {{- with resources.Get . -}}{{- $link_css = . -}}{{- end -}}
+{{- end -}}
+
+{{- range ( slice $protos_model_jsx $themes_based_jsx $themes_model_jsx $module_based_jsx $module_model_jsx ) -}}
+    {{- with resources.Get . -}}{{- $link_jsx = . -}}{{- end -}}
+{{- end -}}
+
+
+
+<!-- register -->
+{{- .Store.Add "pack_css" $link_css -}}
+{{- .Store.Add "pack_jsx" $link_jsx -}}

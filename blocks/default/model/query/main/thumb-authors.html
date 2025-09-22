@@ -1,0 +1,15 @@
+
+{{- $image := .link -}}
+{{- $name  := .name -}}
+{{- $site  := .site -}}
+{{- $Page  := .ctx  -}}
+{{- $link  := ""    -}}
+
+{{- with $name -}}
+    {{- $path := printf "/%s/%s" "profile/person" ( . | urlize ) -}}
+    {{- with $site.Site.GetPage $path -}}
+        {{ $actual := .Page.Resources.GetMatch .Page.Params.Thumb }}
+        {{ $resize := $actual.Resize "60x webp q100" }}
+        <img src="{{ $resize.RelPermalink }}" fetchpriority="high"  class="rounded-full" width="{{ $actual.Width }}" height="{{ $actual.Height }}" alt="article author image">
+     {{- end -}}
+{{- end -}}

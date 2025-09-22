@@ -1,0 +1,68 @@
+#hero{
+    .head{
+        margin-bottom: 1rem;
+
+        picture{
+            width: 280px;
+            margin: auto;
+        }
+    } 
+
+    .leaf{
+        text-align: center;
+    }
+}
+
+@media only screen and (min-width: 480px) {
+
+}
+
+
+@media only screen and (min-width: 768px) {
+
+    #hero{
+        display: grid;
+        grid-template-columns: auto auto;
+        align-items: center;
+
+        .head{
+            picture{
+                width: 380px;
+                margin: auto;
+            }
+        }
+
+        .leaf{
+            text-align: left;
+        }
+    }
+}
+
+
+@media only screen and (min-width: 1024px) {
+
+    #hero{
+        display: block;
+
+        .head{
+            picture{
+                width: 100%;
+            }
+        }
+    }
+}
+
+
+@media only screen and (min-width: 1280px) {
+
+    #hero{
+       .head{
+            margin-bottom: 1rem;
+        }
+    }
+}
+
+
+@media only screen and (min-width: 1536px) {
+
+}

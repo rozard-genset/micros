@@ -1,0 +1,22 @@
+{{- $terms := partial "lib/queries/term-link.html" . -}}
+
+<div id="hero" class="grid center-x">
+    <div class="grid rows center-x">
+        <div class="lead">
+            <h1 class="text-6xl mt-00">Tell Stories, Share Ideas</h1>
+            <div class="flex">
+                <a href="/blogs/register" class="flex center-x">
+                    <h2 class="text-xl mr-20">Share My Stories</h2>
+                    <div class="icon md border-all rounded-full">{{ partial "icon/line/arrow-right" }}</div>
+                </a>
+                <a href="/{{.Section}}/page/2/" class="flex center-x ml-30">
+                    <h2 class="text-xl mr-20">Stories Timeline</h2>
+                    <div class="icon md border-all rounded-full">{{ partial "icon/line/arrow-right" }}</div>
+                </a>
+            </div>
+        </div>
+        <div class="term flex">
+            {{- range first 9 $terms -}}<a href="{{ .RelPermalink }}" class="text-lg border-all rounded-full">{{- .Title -}}</a>{{- end -}}
+        </div>
+    </div>
+</div>

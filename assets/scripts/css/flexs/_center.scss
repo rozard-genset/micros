@@ -1,0 +1,47 @@
+.center-xs {
+    -ms-flex-pack: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    text-align: center;
+}
+@media only screen and (min-width: 480px) {
+    .center-sm {
+        -ms-flex-pack: center;
+        -webkit-box-pack: center;
+        justify-content: center;
+        text-align: center;
+    }
+}
+@media only screen and (min-width: 768px) {
+    .center-md {
+        -ms-flex-pack: center;
+        -webkit-box-pack: center;
+        justify-content: center;
+        text-align: center;
+    }
+}
+@media only screen and (min-width: 1024px) {
+    .center-lg {
+        -ms-flex-pack: center;
+        -webkit-box-pack: center;
+        justify-content: center;
+        text-align: center;
+    }
+}
+@media only screen and (min-width: 1280px) {
+    .center-xl {
+        -ms-flex-pack: center;
+        -webkit-box-pack: center;
+        justify-content: center;
+        text-align: center;
+    }
+}
+@media only screen and (min-width: 1536px) {
+    .center-xxl {
+        -ms-flex-pack: center;
+        -webkit-box-pack: center;
+        justify-content: center;
+        text-align: center;
+    }
+}
+

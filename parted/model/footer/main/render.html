@@ -1,0 +1,30 @@
+{{- $logo := resources.Get "image/logo.webp" }}{{ $name := "Rozard" -}}
+{{- with .Site.Params.System.Logo -}}{{- $logo =  resources.Get . -}}{{- end -}}
+{{- with .Site.Title -}}{{- $name = . -}}{{- end -}}
+{{- $logo = $logo.Resize "39x webp" -}}
+
+
+<footer>
+    <div class="wrap">
+        <hr class="mb-30">
+        <div class="top mb-20">
+            {{- partial "parted/footer/main/contact.html" . -}}
+            <hr class="mobile mb-30">
+            <div class="flex nav">
+            {{- partial "parted/footer/main/menu-01.html" . -}}
+            {{- partial "parted/footer/main/menu-02.html" . -}}
+            {{- partial "parted/footer/main/menu-03.html" . -}}
+            {{- partial "parted/footer/main/menu-04.html" . -}}
+            </div>
+        </div>
+        <hr class="mb-10">
+        <div class="legal flex center-x mb-10">
+            <p class="capitalize mb-00 mt-00 mr-a text-xs">
+                Copyright © {{ now.Year }} {{ $name }}.  All rights reserved.
+            </p>
+            <ul class="flex ml-a">
+            {{ range .Site.Menus.footer_bottom }}<li><a class="text-xs font-bold ml-15" href="{{ .URL }}">{{ .Name }}</a></li>{{ end }}
+            </ul>
+        </div>
+    </div>
+</footer>

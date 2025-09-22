@@ -1,0 +1,10 @@
+{{- $skels := "themes/default/look/main/skel" -}}
+{{- $main1 := printf "%s/main1.html" $skels -}}
+{{- $main2 := printf "%s/main2.html" $skels -}}
+
+<main id="time" class="page">
+    <div class="wrap grid">
+        {{- partial $main1 . -}}{{- partial $main2 . -}}
+    </div>
+</main>
+

@@ -1,0 +1,1 @@
+console.log('deffers based javascript module loaded');

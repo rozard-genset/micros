@@ -1,0 +1,14 @@
+ <div id="box-3" class="mb-60">
+    {{ range $index, $value := partial "lib/queries/page-list-all-term" . }}{{ if eq $index 4  }}
+    <div id="{{ .name | urlize }}" class="boxes grid">
+        <div class="head flex center-x mb-20">
+            <h2 class="text-2xl border-right">{{ .name }}</h2><hr>
+        </div>
+        <ul class="leaf grid boxs-rows">
+            {{- range $index, $value := first 5 .list -}}
+                <li class="item list-{{ math.Sum $index 1 }}">{{- partial "themes/default/taxo/main/part/cardbox.html" . -}}</li>
+            {{- end -}}
+        </ul>
+    </div>
+    {{- end -}}{{- end -}}
+</div>

@@ -1,0 +1,22 @@
+{{- $part := "themes/default/page/main/part/"   -}}
+{{- $card := printf "%s/cardrelates.html" $part -}}
+{{- $page := partial "lib/themes/pool-page-each-sect.html" .  -}}
+{{- $path := .Section  -}}
+
+<div id="term">
+    <div class="wrap">
+        <div class="head">
+            <h2 class="text-2xl font-bold"> More {{ index .Page.Params.Terms 0 }} Stories</h2>
+        </div>
+        <div class="leaf">
+            {{- range first 4 $page -}}{{- partial $card . -}}{{- end -}}
+        </div>
+        <hr class="mb-30">
+        <div class="next flex">
+            <a href="/{{ $path }}/path/{{ index .Page.Params.Terms 0 | urlize }}" class="flex center-x capitalize text-sm font-bold ml-a">
+                Explore Stories
+                <div class="icon md border-all rounded-full ml-15">{{ partial "lib/icon" "arrow-right" }}</div>
+            </a>
+        </div>
+    </div>
+</div>

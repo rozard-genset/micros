@@ -1,0 +1,18 @@
+{{- $image := "" -}}
+
+
+{{- if .Page.Params.Metadata.thumb -}}
+    {{- $image = .Page.Resources.GetMatch .Page.Params.Metadata.thumb -}}
+{{ end }}
+
+
+{{- if .Page.Params.Module.Cover  -}}
+    {{- $image = .Page.Resources.GetMatch .Page.Params.Module.Cover -}}
+{{- end -}}
+
+
+{{- if $image -}}
+    {{- $link := .Page.Resources.GetMatch $image -}}
+    {{- $link = $link.Fill "160x160 webp q100"   -}}
+    <img src="{{ $link.RelPermalink }}" class="rounded-lg thumb" width="{{ $link.Width }}" height="{{ $link.Height }}" alt="{{ .Title }} article feature image" fetchpriority="high">
+{{- end -}}

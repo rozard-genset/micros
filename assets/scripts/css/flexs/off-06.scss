@@ -1,0 +1,28 @@
+.offset-col-xs-6 {
+    margin-left: 50%;
+}
+@media only screen and (min-width: 480px) {
+    .offset-col-sm-6 {
+        margin-left: 50%;
+    }
+}
+@media only screen and (min-width: 768px) {
+    .offset-col-md-6 {
+        margin-left: 50%;
+    }
+}
+@media only screen and (min-width: 1024px) {
+    .offset-col-lg-6 {
+        margin-left: 50%;
+    }
+}
+@media only screen and (min-width: 1280px) {
+    .offset-col-xl-6 {
+        margin-left: 50%;
+    }
+}
+@media only screen and (min-width: 1536px) {
+    .offset-col-xxl-6 {
+        margin-left: 50%;
+    }
+}

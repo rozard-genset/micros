@@ -1,0 +1,61 @@
+
+.icon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    fill: var(--color-01);
+    margin-right: 10px;
+    height: 1.2rem;
+    width: 1.2rem;       
+}
+
+
+svg {
+    height: 1rem;
+    width: 1rem;      
+}
+
+.icon.sm {
+    height: 1.5rem;
+    width: 1.5rem;
+    min-width: 1.5rem;
+}
+
+.icon.sm svg{
+    height: 1.2rem;
+    width: 1.2rem; 
+    min-width: 1.2rem;      
+}
+
+.icon.md {
+    height: 2rem;
+    width: 2rem;   
+    min-width: 2rem;
+}
+
+.icon.md svg{
+    height: 1.386rem;
+    width: 1.386rem;       
+}
+
+.icon.lg {
+    height: 2.25rem;
+    width: 2.25rem; 
+    min-width: 2.25rem;  
+}
+
+.icon.lg svg{
+    height: 1.5rem;
+    width: 1.5rem;       
+}
+
+.icon.xl {
+    height: 2.5rem;
+    width: 2.5rem;
+    min-width: 2.5rem;
+}
+
+.icon.xl svg{
+    height: 1.75rem;
+    width: 1.75rem;       
+}

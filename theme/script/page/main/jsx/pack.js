@@ -1,0 +1,1 @@
+console.log('defers page script loaded');

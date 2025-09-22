@@ -1,0 +1,18 @@
+:root {
+
+	color-scheme: light dark;
+
+	--light-base-03: #7b8495;
+	--light-base-04: ghostwhite;
+
+	--dark-base-03: ghostwhite;
+	--dark-base-04: ghostwhite;
+
+
+	--background-03: light-dark(var(--dark-base-03), var(--light-base-03));
+	--background-03: light-dark(var(--dark-base-04), var(--light-base-04));
+
+	--color-03: light-dark(var(--light-base-03), var(--dark-base-03));
+	--color-04: light-dark(var(--light-base-04), var(--dark-base-04));
+}
+

@@ -1,0 +1,51 @@
+{{- $feat := "stories/module/base/main/part/thumb-cord-feat.html" -}}
+{{- $card := "stories/module/base/main/part/thumb-cord-card.html" -}}
+
+
+<div id="{{ .name | urlize }}" class="cord grid">
+    <div class="head mb-60">
+        <div class="flex center-x border-bottom">
+            <h2 class="text-2xl border-right mt-00 mb-00 pr-15 pb-10">{{ .name }}</h2>
+            <div class="mt-00 mb-00 pl-15 pb-10">{{ .page.Params.Parted.Hero.Desc }}</div>
+        </div>
+    </div>
+    <div class="leaf grid">
+        <div class="lside">
+            {{- range  $index, $value :=  first 1 .list -}}
+            <a href="{{ .RelPermalink }}" class="card grid list-1">
+                <div class="thumb mb-30">{{- partial $feat . -}}</div>
+                <div class="metas">
+                    <h2 class="text-xl font-bold mb-20 mt-00">{{- .Title -}}</h2>
+                    <p class="text-sm mb-25">{{- .Page.Params.Description -}}</p>
+                    <div class="flex center-x">
+                         <div class="avatar rounded-full overflow-hidden">{{- partial "parted/avatar/user-28.html" . -}}</div>
+                        <div class="font-bold text-sm mb-00 mt-05 ml-20">{{ .Lastmod | time.Format ":date_medium" }}</div>
+                        <div class="capitalize text-sm border-left mb-00 mt-00 ml-10 pl-10">reading time:<span class="font-bold ml-10">{{ printf "%d min" .ReadingTime }}</span></div>
+                    </div>
+                </div> 
+            </a>
+            {{- end -}}
+        </div>
+        <div class="rside">
+            {{- range $index, $value := first 4 .list -}}{{ if gt $index 0  }}
+                <a href="{{ .RelPermalink }}" class="card grid list-{{ math.Sum $index 1 }}">
+                    <div class="metas">
+                        <h2 class="text-lg font-bold mb-20 mt-00">{{- .Title -}}</h2>
+                        <p class="text-sm mb-25">{{- .Page.Params.Description -}}</p>
+                        <div class="flex center-x">
+                            <div class="avatar rounded-full overflow-hidden">{{- partial "parted/avatar/user-28.html" . -}}</div>
+                            <div class="font-bold text-sm mb-00 mt-05 ml-20">{{ .Lastmod | time.Format ":date_medium" }}</div>
+                            <div class="capitalize text-sm border-left mb-00 mt-00 ml-10 pl-10">reading time:<span class="font-bold ml-10">{{ printf "%d min" .ReadingTime }}</span></div>
+                        </div>
+                    </div> 
+                    <div class="thumb">{{- partial $card . -}}</div>
+                </a>
+            {{- end -}}{{- end -}}
+            <hr class="mb-25">
+            <a href="{{ .page.RelPermalink }}" class="more flex center-x capitalize text-sm font-bold ml-a">
+               More Stories
+                <div class="icon sm border-all rounded-full ml-15">{{ partial "lib/icon" "arrow-right" }}</div>
+            </a>
+        </div>
+    </div>
+</div>

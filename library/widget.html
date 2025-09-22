@@ -1,0 +1,46 @@
+{{- $theming := "default" -}}
+{{- with .Site.Params.System.Themes -}}{{- $theming = ( . | urlize ) -}}{{- end -}}
+
+{{- $scope := .type -}}
+{{- $model := .model -}}
+
+
+{{- $widget_paths := "" -}}
+{{- $widget_based :=  printf "widget/%s/%s/render.html" $scope $model  -}}
+{{- $widget_modul :=  printf "module/%s/widget/%s/%s/render.html" .Section $scope $model -}}
+{{- $widget_theme :=  printf "themes/%s/widget/%s/%s/render.html" $theming $scope $model -}}
+{{- $widget_skins :=  printf "themes/%s/module/%s/widget/%s/%s/render.html" $theming .Section $scope $model -}}
+
+
+{{- if templates.Exists ( printf "partials/%s" $widget_based ) -}}
+    {{- $widget_paths = $widget_based -}}
+{{- end -}}
+
+
+{{- if templates.Exists ( printf "partials/%s" $widget_modul ) -}}
+    {{- $widget_paths = $widget_modul -}}
+{{- end -}}
+
+
+{{- if templates.Exists ( printf "partials/%s" $widget_theme ) -}}
+    {{- $widget_paths = $widget_theme -}}
+{{- end -}}
+
+
+{{- if templates.Exists ( printf "partials/%s" $widget_skins ) -}}
+    {{- $widget_paths = $widget_skins -}}
+{{- end -}}
+
+
+{{- if templates.Exists ( printf "partials/%s" $widget_paths ) -}}
+    {{- partial $widget_paths . -}}
+{{- end -}}
+
+
+<!--
+{{/* 
+Example function for load widget 
+{{- partial "lib/widget.html" ( dict "type" "share" "model" "main"  ) -}}
+*/}}
+-->
+

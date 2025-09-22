@@ -1,0 +1,83 @@
+@import "../../../../css/main/view.scss";
+@import "../../../../css/main/icon.scss";
+@import "../../../../css/main/part.scss";
+@import "../../../../css/main/line.scss";
+@import "../../../../css/main/typo.scss";
+@import "../../../../css/main/font.scss";
+
+html{
+    --line-01: #e1e1e1;
+    --line-02: #1c2536;
+    --color-01: rgb(12 16 22);
+    --color-02: rgb(48 57 78);
+    --button-01: #0b5fa0;
+    --button-02: #0b5fa0;
+    --background-01: #fff;
+    --background-02: #fbfbfb;
+    --link-01-based: rgb(48 57 78);
+    --link-01-hover: #000;
+    --link-02-based: rgb(0 109 189);
+    --link-02-hover: rgb(0 109 189);
+    --link-03-based: rgb(255 129 72);
+    --thead-color: rgb(184 72 0);
+}
+
+html[dark-mode="dark"]{
+    --line-01: #2d3444;
+    --line-02: #1c2536;
+    --color-01: ghostwhite;
+    --color-02: #a8b9d3;
+    --button-01: rgb(0 109 189);
+    --button-02: rgb(217 94 16);
+    --background-01: rgb(12 16 22);
+    --background-02: rgb(16 21 33);
+    --link-01-based: rgb(0 109 189);
+    --link-01-hover: rgb(0 109 189);
+    --link-02-based: rgb(0 147 255);
+    --link-02-hover: rgb(0 147 255);
+    --link-03-based: #83ee37;
+    --thead-color: rgb(184 72 0);
+}
+
+
+
+html{
+    font-size: 14px;
+    color: var(--color-01);
+    background-color: var(--background-01);
+    transition: 200ms;
+}
+
+@media only screen and (min-width: 480px) {
+    html{
+        font-size: 14.5px;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    html{
+        font-size: 14.5px;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    html{
+        font-size: 14.5px;
+    }
+}
+
+@media only screen and (min-width: 1280px) {
+    html{
+        font-size: 14.5px;
+    }
+}
+
+@media only screen and (min-width: 1536px) {
+    html{
+        font-size: 16px;
+    }
+}
+
+body{
+	padding: 0; margin: 0;
+}

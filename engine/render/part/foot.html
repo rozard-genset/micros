@@ -1,0 +1,31 @@
+<!-- variable -->
+{{- $themes := partial "lib/system/themes.html" . -}}
+{{- $sected := partial "lib/system/module.html" . -}}
+{{- $layout := partial "lib/system/layout.html" . -}}
+{{- $routes := partial "lib/system/routes.html" . -}}
+
+
+<!-- conditional -->
+{{- $render := printf "parted/footer/main/render.html" -}}
+
+{{- $theme_based := printf "themes/%s/parted/footer/main/render.html"   $themes -}}
+{{- $theme_model := printf "themes/%s/parted/footer/%s/render.html"     $themes $layout -}}
+{{- $theme_paged := printf "themes/%s/%s/%s/footer.html"                $themes $routes $layout -}} 
+
+{{- $modul_based := printf "%s/module/parted/footer/main/render.html"   $sected -}}
+{{- $modul_model := printf "%s/module/parted/footer/%s/render.html"     $sected $layout -}}
+{{- $modul_paged := printf "%s/module/%s/%s/skel/footer.html"           $sected $routes $layout -}}
+
+
+<!-- validation -->
+{{ range ( slice $theme_based $theme_model $theme_paged $modul_based $modul_model $modul_paged ) }}
+    {{- if templates.Exists ( printf "partials/%s" . )  -}}
+        {{- $render = . -}}
+    {{- end -}}
+{{ end }}
+
+
+<!-- rendering -->
+{{- if templates.Exists ( printf "partials/%s" $render )  -}}
+    {{- partial $render . -}}
+{{- end -}}

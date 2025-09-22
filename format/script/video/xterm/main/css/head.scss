@@ -1,0 +1,87 @@
+[data-format="xterm"] {
+    font : normal;
+}
+
+[data-format="xterm"] .box{
+    position: relative;
+    overflow: hidden;
+}
+
+[data-format="xterm"] .overlay{
+    background-color: rgba( 0, 0, 0, .1);
+}
+
+[data-format="xterm"] .overlay:hover{
+    background-color: rgba( 0, 0, 0, .4);
+    transition: 150ms;
+}
+
+
+[data-format="xterm"] .loader,
+[data-format="xterm"] .action{
+    position: absolute;
+}
+
+[data-format="xterm"] .loader{
+    z-index: 3;
+    width: 100%;
+}
+
+[data-format="xterm"] .image{
+    z-index: -1;
+    width: 100%;
+    overflow: hidden;
+    transition: 250ms;
+    ;
+}
+
+[data-format="xterm"] .overlay:hover .image{
+    transform: scale(1.03);
+    transition: 250ms;
+}
+
+
+[data-format="xterm"] .action .icon{
+    min-width:  5rem;
+    min-height: 4rem;
+    background-color: black;
+}
+
+[data-format="xterm"] .overlay:hover .action .icon{
+    background-color: rgb(235, 37, 37);
+    border: 1px solid transparent;
+    color: white;
+    z-index: 15;
+    transition: 150ms;
+}
+
+[data-format="xterm"] .action .icon svg {
+    min-width:  2.75rem;
+    min-height: 2.75rem;
+}
+
+[data-format="xterm"] .hide{
+    width: 0;
+    z-index: 0;
+    opacity: 0;
+    position: absolute;
+    transition: 250ms;
+}
+
+[data-format="xterm"] #xterm-players {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    padding-top: 56.25%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
+}
+
+[data-format="xterm"] #xterm-iframes {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+}
+

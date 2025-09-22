@@ -1,0 +1,23 @@
+:host:not([data-theme]), :root:not([data-theme]) {
+    --pico-demo-border-gradient-colors: transparent 33%,rgb(74.2, 20.8, 68.4),rgb(58.5, 32.5, 85.75),rgb(45, 36.6, 100.9),rgb(26.4, 42.9, 106.7);
+    --pico-card-box-shadow: none;
+    --pico-card-background-color: rgb(21.5, 25.25, 33.75);
+    --pico-card-component-outline-width: .0625rem;
+    --pico-card-component-outline-color: rgb(28, 33, 43.5);
+    --pico-card-border-color: var(--pico-card-component-outline-color);
+    --pico-mark-gradient: linear-gradient(to right, rgb(215.4, 140.8, 210.2), rgb(184.5, 153, 237.75), rgb(156.6, 165.3, 232.6), rgb(142.75, 168.95, 240.05));
+    --pico-stats-color: rgb(120.5, 176, 227);
+    --pico-features-icon-color: rgb(184.5, 153, 237.75);
+    --pico-comparison-gradient-valid: linear-gradient(var(--pico-comparison-gradient-direction, to bottom), rgb(79.25, 123.5, 148.25), rgb(58.125, 112.625, 115.625), rgb(63, 101.5, 67));
+    --pico-comparison-gradient-invalid: linear-gradient(var(--pico-comparison-gradient-direction, to bottom), rgb(138.5, 110, 76.5), rgb(153, 77.625, 63.25), rgb(151.75, 54.5, 52.25));
+    --pico-badge-html-background-color: rgba(224.5, 149.5, 127.75, .125);
+    --pico-badge-html-color: rgb(224.5, 149.5, 127.75);
+    --pico-badge-react-background-color: rgba(78.375, 167.75, 195.125, .125);
+    --pico-badge-react-color: rgb(78.375, 167.75, 195.125);
+    --pico-badge-sass-background-color: rgba(204.5, 151.5, 199, .125);
+    --pico-badge-sass-color: rgb(204.5, 151.5, 199);
+    --pico-badge-javascript-background-color: rgba(188, 166.5, 99.5, .125);
+    --pico-badge-javascript-color: rgb(188, 166.5, 99.5);
+    --pico-badge-css-background-color: rgba(156, 167, 250, .125);
+    --pico-badge-css-color: #9ca7fa;
+}

@@ -1,0 +1,34 @@
+{{- $feat := "stories/module/base/main/part/thumb-cale-feat.html" -}}
+<div id="{{ .name | urlize }}" class="cale">
+    <div class="head mb-60">
+        <div class="flex-inline center-x border-bottom">
+            <h2 class="text-2xl border-right mt-00 mb-00 pr-15 pb-10">{{ .name }}</h2>
+            <p class="mt-00 mb-00 pl-15 pb-10">{{ .page.Params.Parted.Hero.Desc }}</p>
+        </div>
+    </div>
+    <ul class="leaf grid">
+        {{- range $index, $value := first 4 .list -}}
+        <li class="item list-{{ math.Sum $index 1 }}">
+            <a href="{{ .RelPermalink }}" class="card boxs grid">
+                <div class="thumb mb-30">{{- partial $feat . -}}</div>
+                <div class="metas">
+                    <div class="head mb-20">
+                        <h2 class="text-xl font-bold mb-20 mt-00">{{ .Title }}</h2>
+                        <p class="text-sm mb-10">{{- .Page.Params.Description -}}</p>
+                    </div>
+                    <div class="flex center-x">
+                        <div class="avatar rounded-full overflow-hidden">{{- partial "parted/avatar/user-32.html" . -}}</div>
+                        <h2 class="text-sm mt-00 mb-00 ml-20 mr-20">{{- .Page.Params.Metadata.Author -}}</h2>
+                        <div class="readtime capitalize mb-00 mt-00 ml-a text-sm flex center-x"><span class="readtime">reading</span> time:<span class="font-bold ml-10">{{ printf "%d min" .ReadingTime }}</span></div>
+                    </div>
+                </div>
+            </a>
+        </li>
+        {{- end -}}
+    </ul>
+    <hr class="mb-25 mt-00">
+    <a href="{{ .page.RelPermalink }}" class="flex center-x capitalize text-sm font-bold ml-a">
+        More Stories
+        <div class="icon sm border-all rounded-full ml-15">{{ partial "/lib/icon" "arrow-right" }}</div>
+    </a>
+</div>

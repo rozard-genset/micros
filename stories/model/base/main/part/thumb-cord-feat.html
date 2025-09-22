@@ -1,0 +1,32 @@
+{{- $image := .Page.Resources.GetMatch .Page.Params.Metadata.thumb -}}
+
+{{- if .Page.Params.Module.Cover  -}}
+    {{- $image = .Page.Resources.GetMatch .Page.Params.Module.Cover -}}
+{{- end -}}
+
+{{- if $image -}}
+    <picture>
+
+        {{- $xx := $image.Resize "580x webp q100" -}}
+        <source media="(width > 1360px)" srcset="{{ $xx.RelPermalink }}"/>
+
+        {{- $xl := $image.Resize "584x webp q100" -}}
+        <source media="(width > 1280px)" srcset="{{ $xl.RelPermalink }}"/>
+
+        {{- $lg := $image.Resize "520x webp q100" -}}
+        <source media="(width > 1023px)" srcset="{{ $lg.RelPermalink }}"/>
+
+        {{- $md := $image.Resize "240x webp q100" -}}
+        <source media="(width > 768px)" srcset="{{ $md.RelPermalink }}"/>
+
+        {{- $sm := $image.Resize "320x" -}}
+        {{- $sm = $sm.Fill "140x140 webp q100" -}}
+        <source media="(width > 480px)" srcset="{{ $sm.RelPermalink }}"/>
+
+        {{- $xs := $image.Resize "300x webp q100" -}}
+        <source media="(width > 100px)" srcset="{{ $xs.RelPermalink }}"/>
+
+
+        <img src="{{ $image.RelPermalink }}" alt="{{ .Title }}" class="rounded-md" width="{{ $image.Width }}" height="{{ $image.Height }}" title="{{ .Title }}" loading="lazy"/>
+    </picture>
+{{- end -}}

@@ -1,0 +1,49 @@
+#article-menu{
+    .time{
+        margin-right: auto;
+    }
+
+    .icon{
+        padding: .35rem;
+    }
+}
+
+#article-load {
+
+    .animated-background {
+        margin-bottom: 2rem;
+        animation-duration: 2s;
+        animation-fill-mode: forwards;
+        animation-iteration-count: infinite;
+        animation-name: slideloader;
+        animation-timing-function: linear;
+        background-color: var(--background-01);
+        background: linear-gradient(to right, var(--background-01) 8%, var(--background-02) 18%, var(--background-01) 33%);
+        background-size: 800px 104px;
+        height: 70px;
+        position: relative;
+    }
+
+
+    .background-masker {
+        background-color: var(--background-01);
+        position: absolute;
+    }
+
+    .btn-divide-left {
+        top: 0;
+        left: 25%;
+        height: 100%;
+        width: 5%;
+    }
+
+    @keyframes slideloader {
+        0% {
+            background-position: -800px 0
+        }
+        100% {
+            background-position: 800px 0
+        }
+    }
+} 
+

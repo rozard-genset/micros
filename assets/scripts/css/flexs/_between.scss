@@ -1,0 +1,40 @@
+.between-xs {
+    -ms-flex-pack: justify;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+}
+@media only screen and (min-width: 480px) {
+    .between-sm {
+        -ms-flex-pack: justify;
+        -webkit-box-pack: justify;
+        justify-content: space-between;
+    }
+}
+@media only screen and (min-width: 768px) {
+    .between-md {
+        -ms-flex-pack: justify;
+        -webkit-box-pack: justify;
+        justify-content: space-between;
+    }
+}
+@media only screen and (min-width: 1024px) {
+    .between-lg {
+        -ms-flex-pack: justify;
+        -webkit-box-pack: justify;
+        justify-content: space-between;
+    }
+}
+@media only screen and (min-width: 1280px) {
+    .between-xl {
+        -ms-flex-pack: justify;
+        -webkit-box-pack: justify;
+        justify-content: space-between;
+    }
+}
+@media only screen and (min-width: 1536px) {
+    .between-xxl {
+        -ms-flex-pack: justify;
+        -webkit-box-pack: justify;
+        justify-content: space-between;
+    }
+}

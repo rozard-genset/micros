@@ -1,0 +1,13 @@
+{{- $link := .Page.RelPermalink -}}
+{{- $path := split ($link) "/" -}}
+{{- $name := delimit ( last 2 $path ) "" }} 
+
+<!-- redirect to user page -->
+{{- if and ( eq ( len $path ) 5 ) ( strings.Contains $link ( printf "%s/pool" .Section ) ) -}}
+    {{- with $name -}}
+        {{- $path := printf "/%s/%s" "profile" ( . | urlize ) -}}
+        {{- with $.Site.GetPage $path -}}
+            <meta http-equiv="refresh" content="0; url={{ .RelPermalink }}" />
+        {{- end -}}
+    {{- end -}}
+{{- end -}}

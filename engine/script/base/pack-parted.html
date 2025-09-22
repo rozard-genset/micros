@@ -1,0 +1,15 @@
+<!-- storing -->
+{{- $link_css := .Store.Get "pack_css" -}}
+{{- $link_jsx := .Store.Get "pack_jsx" -}}
+
+{{- range ( .Store.Get "parted_css" ) -}}
+    {{- with resources.Get . -}}{{- $link_css = $link_css | append . -}}{{- end -}}
+{{- end -}}
+
+{{- range ( .Store.Get "parted_jsx" ) -}}
+    {{- with resources.Get . -}}{{- $link_jsx = $link_jsx | append . -}}{{- end -}}
+{{- end -}}
+
+
+{{- .Store.Add "pack_css" $link_css -}}
+{{- .Store.Add "pack_jsx" $link_jsx -}}

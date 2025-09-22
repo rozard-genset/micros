@@ -1,0 +1,22 @@
+{{- $part := "themes/default/page/main/part/"  -}}
+{{- $feat := printf "%s/relsthumbs.html" $part -}}
+
+<article class="card">
+    <a href="{{ .RelPermalink }}" class="thumb">{{- partial $feat . -}}</a>
+    <div class="metas mt-10">
+        <div class="author flex center-x mb-10">
+            <div class="avatar rounded-full overflow-hidden">
+                {{- partial "parted/avatar/user-24.html" . -}}
+            </div>
+            <div class="name text-sm ml-10">{{ .Page.Params.Metadata.Author }}</div>
+        </div>
+        <a href="{{ .RelPermalink }}">
+            <h2 class="title text-xl font-bold mt-00 mb-00">{{ .Title }}</h2>
+            <p class="text-sm mt-05">{{ .Page.Params.Description }}</p>
+        </a>
+        <div class="panel flex center-x">
+            <div class="lastmods text-sm">{{ .Lastmod | time.Format "January 02, 2006" }} </div>
+            <div class="bookmark icon xs border-all rounded-full pa-05 la-01 ml-a">{{ partial "lib/icon" "bookmark" }}</div>
+        </div>
+    </div>
+</article>

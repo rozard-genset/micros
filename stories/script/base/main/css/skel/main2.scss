@@ -1,0 +1,43 @@
+#main-2{
+
+    .rows{
+        grid-gap: 3rem;
+    }
+}
+
+
+
+@media only screen and (min-width: 480px) {
+
+    #main-2{
+        .rows{
+            grid-gap: 0rem;
+        }
+    }
+}
+
+
+@media only screen and (min-width: 768px) {
+
+}
+
+
+@media only screen and (min-width: 1024px) {
+
+}
+
+
+@media only screen and (min-width: 1280px) {
+
+    #main-2{
+        .rows{
+            grid-template-columns: 65% 28%;
+            justify-content: space-between;
+        }
+    }
+}
+
+
+@media only screen and (min-width: 1536px) {
+
+}

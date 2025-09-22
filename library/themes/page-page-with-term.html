@@ -1,0 +1,13 @@
+{{- $term_now := .Page.Params.Terms -}}
+{{- $page_set := where .Site.RegularPages "Type" .Section -}}
+{{- $page_get := $page_set.ByDate -}}
+{{- $page_all := slice -}}
+{{- $page_now := .Title -}}
+
+{{- range $page_get -}}
+    {{- if and ( collections.Intersect $term_now .Page.Params.terms ) ( ne .Title $page_now )  -}}
+        {{- $page_all = $page_all | append . -}}
+    {{- end -}}
+{{- end -}}
+
+{{- return $page_all -}}

@@ -1,0 +1,6 @@
+{{- with .Page.Params.Metadata.Author -}}
+    {{- $path := printf "/%s/%s" "profile" . -}}
+    {{- with $.Site.GetPage $path -}}
+        <p class="userbio">{{ .Page.Params.Vitae.Desc }}</p>
+     {{- end -}}
+{{- end -}}

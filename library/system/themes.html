@@ -1,0 +1,4 @@
+<!-- get themes -->
+{{- $themes := "default" -}}
+{{- with .Site.Params.System.Themes -}}{{- $themes = . -}}{{- end -}}
+{{- return $themes -}}

@@ -1,0 +1,36 @@
+{{- $part := "themes/default/taxo/main/view/" -}}
+{{- $lead := printf "%s/lead.html" $part -}}
+{{- $hero := printf "%s/hero.html" $part -}}
+{{- $feat := printf "%s/feat.html" $part -}}
+{{- $list := printf "%s/list.html" $part -}}
+{{- $read := printf "%s/read.html" $part -}}
+{{- $pick := printf "%s/pick.html" $part -}}
+{{- $book := printf "%s/book.html" $part -}}
+{{- $box1 := printf "%s/box1.html" $part -}}
+{{- $box2 := printf "%s/box2.html" $part -}}
+{{- $box3 := printf "%s/box3.html" $part -}}
+{{- $box4 := printf "%s/box4.html" $part -}}
+
+
+{{- if ( partial "lib/pageds/get-landing.html" . ) -}}
+
+    <main id="page" class="story page">
+        <div class="wrap">
+            {{- partial $hero . -}}
+            {{- partial $box1 . -}}
+            {{- partial $box2 . -}}
+            {{- partial $box3 . -}}
+            {{- partial $box4 . -}}
+        </div>
+    </main>
+
+{{- else -}}
+
+    <main id="item" class="story item">
+        <div class="wrap grid rows">
+            <div id="div1">{{- partial $list . -}}</div>
+            <div id="div2">{{- partial $read . -}}{{- partial $pick . -}}{{- partial $book . -}}</div> 
+        </div>
+    </main>
+
+{{ end }}

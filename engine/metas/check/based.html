@@ -1,0 +1,8 @@
+{{- if eq .Page.Params.Module.Layout "none" -}}
+    <meta http-equiv="refresh" content="0; url={{ .Parent.RelPermalink }}" />
+{{- end -}}
+
+{{- if ne .Type "errors" -}}
+    <noscript><meta http-equiv="refresh" content="0; url=/errors/nojs" /></noscript>
+{{- end -}}
+

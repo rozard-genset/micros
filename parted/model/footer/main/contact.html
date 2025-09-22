@@ -1,0 +1,34 @@
+<!-- logo -->
+{{- $logo := resources.Get "image/logo.webp" -}}
+{{- with .Site.Params.Profile.Logo -}}{{- $logo =  resources.Get . -}}{{- end -}}
+{{- $logo = $logo.Resize "39x webp" -}}
+
+<!-- name -->
+{{- $name := "Rozard" -}}
+{{- with .Site.Title -}}{{- $name = . -}}{{- end -}}
+{{- with .Site.Params.Profile.Name -}}{{- $name = . -}}{{- end -}}
+
+<!-- desc -->
+{{- $desc := "" -}}{{- with .Site.Params.Profile.Desc -}}{{- $desc = . -}}{{- end -}}
+
+<div class="info">
+    <div class="brand flex">
+        <div class="logo">
+            {{- if ne .Site.Params.System.Logo false -}}
+                <img class="mt-10" src="{{ $logo.RelPermalink }}" width="39" height="39" alt="Organization Logo">
+            {{- end -}}
+        </div>
+        <div class="text ml-30">
+            <div class="desc mb-30">
+                <h1 class="text-md font-bold mt-00 mb-05">{{ $name }}</h1>
+                <p class="text-sm mt-00 mb-00">{{ $desc }}</p>
+            </div>
+            <div class="addr">
+                <h2 class="text-md mt-00 font-bold">Address</h2>
+                {{ range .Site.Params.Profile.Address }}
+                    <p class="address text-sm">{{ . }}</p>
+                {{ end }}
+            </div>
+        </div>
+    </div>
+</div>

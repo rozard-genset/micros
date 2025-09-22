@@ -1,0 +1,47 @@
+.start-xs {
+    -ms-flex-pack: start;
+    -webkit-box-pack: start;
+    justify-content: flex-start;
+    text-align: start;
+}
+@media only screen and (min-width: 480px) {
+    .start-sm {
+        -ms-flex-pack: start;
+        -webkit-box-pack: start;
+        justify-content: flex-start;
+        text-align: start;
+    }
+}
+@media only screen and (min-width: 768px) {
+    .start-md {
+        -ms-flex-pack: start;
+        -webkit-box-pack: start;
+        justify-content: flex-start;
+        text-align: start;
+    }
+}
+@media only screen and (min-width: 1024px) {
+    .start-lg {
+        -ms-flex-pack: start;
+        -webkit-box-pack: start;
+        justify-content: flex-start;
+        text-align: start;
+    }
+}
+@media only screen and (min-width: 1280px) {
+    .start-xl {
+        -ms-flex-pack: start;
+        -webkit-box-pack: start;
+        justify-content: flex-start;
+        text-align: start;
+    }
+}
+@media only screen and (min-width: 1536px) {
+    .start-xxl {
+        -ms-flex-pack: start;
+        -webkit-box-pack: start;
+        justify-content: flex-start;
+        text-align: start;
+    }
+}
+

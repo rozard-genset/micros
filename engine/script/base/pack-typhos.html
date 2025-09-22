@@ -1,0 +1,17 @@
+<!-- storing -->
+{{- $link_css := .Store.Get "pack_css" -}}
+{{- $path := "" -}}
+
+<!-- modeling -->
+{{- if .Site.Params.System.Font -}}
+    {{- range .Site.Params.System.Font -}}{{- $name := .name -}}
+        {{- range .weight -}}
+            {{- $path = printf "typho/%s/%s.scss" $name  . -}}
+            
+            {{- with resources.Get $path -}}{{ $link_css = $link_css | append . }}{{- end -}}
+        {{- end -}}
+    {{- end -}}
+{{- end -}}
+
+<!-- register -->
+{{- .Store.Add "pack_css" $link_css -}}

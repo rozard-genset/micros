@@ -1,0 +1,13 @@
+{{ $name := .name }}
+{{ $site := .site }}
+{{ $Page := .ctx }}
+{{ $link := "" }}
+
+{{- with $name -}}
+    {{- $path := printf "/%s/%s" "profile/person" . -}}
+    {{- with $site.Site.GetPage $path -}}
+        {{ $srcs := printf "%s%s" .RelPermalink .Page.Params.Thumb -}}
+        {{ $link = .Page.Resources.GetMatch $srcs }}
+     {{- end -}}
+     {{ return $link }}
+{{- end -}}

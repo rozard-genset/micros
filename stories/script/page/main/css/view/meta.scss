@@ -1,0 +1,51 @@
+#meta{
+    .wrap{
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .bios{
+        .grid{
+            grid-template-columns: 80px calc( 100% - 80px );
+        }
+        .avatar{
+            height: 62px;
+            width: 62px;
+        }
+    }
+
+    hr{
+        width: 100%;
+    }
+}
+
+
+@media only screen and (min-width: 480px) {
+
+}
+
+
+@media only screen and (min-width: 768px) {
+    #meta{
+        .wrap{
+            max-width: 680px;
+        }
+
+        
+    }
+}
+
+
+@media only screen and (min-width: 1024px) {
+
+}
+
+
+@media only screen and (min-width: 1280px) {
+
+}
+
+
+@media only screen and (min-width: 1536px) {
+
+}

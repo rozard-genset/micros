@@ -1,0 +1,29 @@
+<!-- stores -->
+{{- .Store.Set "head_css" (slice ) -}}
+{{- .Store.Set "head_jsx" (slice ) -}}
+{{- .Store.Set "pack_css" (slice ) -}}
+{{- .Store.Set "pack_jsx" (slice ) -}}
+
+
+<!-- variable -->
+{{- $themes := partial "lib/system/themes.html" .  -}}
+
+
+<!-- storing -->
+{{- $link_css := resources.Get "scripts/themes/default/core/css/head.scss" -}}
+{{- $link_jsx := resources.Get "scripts/themes/default/core/jsx/head.js"   -}}
+
+
+<!-- modeling -->
+{{- $theme_css := printf "scripts/themes/%s/core/css/head.scss" $themes -}}
+{{- $theme_jsx := printf "scripts/themes/%s/core/jsx/head.js"   $themes -}}
+
+
+<!-- appended -->
+{{- with resources.Get $theme_css -}}{{- $link_css = . -}}{{- end -}}
+{{- with resources.Get $theme_jsx -}}{{- $link_jsx = . -}}{{- end -}}
+
+
+<!-- stroringer -->
+{{- .Store.Add "head_css" $link_css -}}
+{{- .Store.Add "head_jsx" $link_jsx -}}

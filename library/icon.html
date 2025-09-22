@@ -1,0 +1,16 @@
+{{- $name := ( . | urlize ) -}}
+
+{{- $feather := printf "partials/icon/feather/%s.svg" $name  -}}
+{{- $rozards := printf "partials/icon/rozard/%s.svg"  $name  -}}
+{{- $branded := printf "partials/icon/brands/%s.svg"  $name  -}}
+
+{{- if templates.Exists $rozards -}}
+    {{- partial ( printf "icon/rozards/%s.svg" $name ) -}}
+{{- else if templates.Exists $branded -}}
+    {{- partial ( printf "icon/brands/%s.svg" $name ) -}}
+{{- else if templates.Exists $feather -}}
+    {{- partial ( printf "icon/feather/%s.svg" $name ) -}}
+{{- else -}}
+    {{- partial "icon/feather/check-circle.svg" -}}
+{{- end -}}
+

@@ -1,0 +1,12 @@
+{{- $part := "stories/module/base/main/view" -}}
+{{- $join := printf "%s/join.html" $part  -}}
+{{- $team := printf "%s/team.html" $part  -}}
+{{- $bugs := printf "%s/bugs.html" $part  -}}
+
+<div id="main-8" class="mb-60">
+    <div class="grid rows">
+        {{- partial $join  . -}}
+        {{- partial $team  . -}}
+        {{- partial $bugs  . -}}
+    </div>
+</div>

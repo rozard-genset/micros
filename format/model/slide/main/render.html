@@ -1,0 +1,26 @@
+<!-- format for sliderock presentation to page -->
+{{- $images := "" -}}
+{{- with .Page.Params.Metadata.Thumb -}}{{- $images = . -}}{{- end -}}
+{{- with .Page.Params.Format.Cover -}}{{- $images = . -}}{{- end -}}
+
+<div id="format" data-format="slide">
+   <div class="bublewrap">
+        <div class="overlay rounded-2xl">
+            <div class="box rounded-xl flex center-a">
+                <div id="slide-opening" class="loader aspect-video">
+                    <div class="overlay flex center-a">
+                        <div class="image">
+                            <img class="cover" src="{{ .RelPermalink }}{{ $images }}">
+                        </div>
+                        <div class="action">
+                            <div class="icon mr-10 rad-7 la-01">{{ partial "lib/icon" "play" }}</div>
+                        </div>
+                    </div>
+                </div>
+                <div id="slide-players" class="player rounded-2xl" data-uri="{{ .Page.Params.Format.Datum.Data }}">
+                    <iframe id="slide-iframes" class="rounded-2xl" width="713" height="401" src="" title="{{ .Page.Params.Title }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

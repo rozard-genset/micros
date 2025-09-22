@@ -1,0 +1,14 @@
+{{- $user := slice -}}
+{{- $page := slice -}}
+{{- range where site.RegularPages "Type" .Section -}}
+    {{- if eq .Params.metadata.author slice  -}}
+        {{ continue }}
+    {{- end -}}
+
+    
+    
+
+        
+{{- end -}}
+
+{{ return $page }}

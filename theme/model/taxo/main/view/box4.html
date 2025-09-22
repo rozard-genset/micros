@@ -1,0 +1,22 @@
+<div id="box-4" class="mb-60">
+    <div class="grid rows">
+        {{- range $index, $value := partial "lib/queries/page-list-all-term" . -}}
+        {{- if and ( ge $index 5 ) ( le $index 7 ) -}}
+        <div id="{{ .name | urlize }}" class="boxes grid">
+            <div class="head flex center-x mb-20">
+                <h2 class="text-2xl border-right">{{ .name }}</h2><hr>
+            </div>
+            <ul class="leaf grid boxs-list">
+                {{- range $index, $value := first 5 .list -}}
+                    <li class="item list-{{ math.Sum $index 1 }}">{{- partial "themes/default/taxo/main/part/cardlist.html" . -}}</li>
+                {{- end -}}
+            </ul>
+            <hr class="mb-15">
+            <a href="{{ .page.RelPermalink }}" class="flex center-x capitalize text-sm font-bold">
+                More {{ .page.Title }} article
+                <div class="icon sm border-all rounded-full ml-15">{{ partial "icon/line/arrow-right" }}</div>
+            </a>
+        </div>
+        {{- end -}}{{- end -}}
+    </div>
+</div>

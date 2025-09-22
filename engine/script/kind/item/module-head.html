@@ -1,0 +1,39 @@
+<!-- variable -->
+{{- $themes := partial "lib/system/themes.html" . -}}
+{{- $sected := partial "lib/system/module.html" . -}}
+{{- $layout := partial "lib/system/layout.html" . -}}
+{{- $kinder := partial "lib/system/routes.html" . -}}
+
+
+<!-- storing -->
+{{- $link_css := "" -}}
+{{- $link_jsx := "" -}}
+
+
+<!-- modeling -->
+{{- $cores_css := printf "scripts/%s/module/%s/main/css/head.scss" $sected $kinder -}}
+{{- $cores_jsx := printf "scripts/%s/module/%s/main/jsx/head.js"   $sected $kinder -}}
+
+{{- $based_css := printf "scripts/%s/module/%s/%s/css/head.scss" $sected $kinder $layout -}}
+{{- $based_jsx := printf "scripts/%s/module/%s/%s/jsx/head.js"   $sected $kinder $layout -}}
+
+{{- $theme_css := printf "scripts/theme/%s/module/%s/%s/main/css/head.scss" $themes $sected $kinder -}}
+{{- $theme_jsx := printf "scripts/theme/%s/module/%s/%s/main/jsx/head.js"   $themes $sected $kinder -}}
+
+{{- $model_css := printf "scripts/theme/%s/module/%s/layout/%s/%s/css/head.scss" $themes $sected $kinder $layout -}}
+{{- $model_jsx := printf "scripts/theme/%s/module/%s/layout/%s/%s/jsx/head.js"   $themes $sected $kinder $layout -}}
+
+
+<!-- apending -->
+{{- range ( slice $cores_css $based_css $theme_css $model_css ) -}}
+    {{- with resources.Get . -}}{{- $link_css = . -}}{{- end -}}
+{{- end -}}
+
+{{- range ( slice $cores_jsx $based_jsx $theme_jsx $model_jsx ) -}}
+    {{- with resources.Get . -}}{{- $link_jsx = . -}}{{- end  -}}
+{{- end -}}
+
+
+<!-- storing -->
+{{- .Store.Add "head_css" $link_css -}}
+{{- .Store.Add "head_jsx" $link_jsx -}}

@@ -1,0 +1,11 @@
+<!-- variable -->
+{{- $view := "stories/module/path/main/view/" -}}
+{{- $hero := printf "%s/hero.html" $view -}}
+{{- $join := printf "%s/join.html" $view -}}
+
+<div id="main-2">
+    <div class="grid rows">
+        {{- partial $hero . -}}
+        {{- partial $join . -}}
+    </div>
+</div>

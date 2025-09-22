@@ -1,0 +1,12 @@
+{{- $part := "stories/module/base/main/view/" -}}
+{{- $card := printf "%s/colo.html" $part  -}}
+{{- $data := partial "lib/stories/query/base-page-each-term.html" . -}}
+
+
+<div id="main-5" class="mb-60">
+    <div class="grid rows">
+        {{- range $index, $value := $data -}}{{- if and ( ge $index 5 ) ( le $index 7 ) -}}
+            {{- partial $card  . -}}
+        {{- end -}}{{- end -}}
+    </div>
+</div>

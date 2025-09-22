@@ -1,0 +1,7 @@
+{{- $page_all := slice -}}
+{{- range where .Site.RegularPages "Type" .Section -}}
+    {{- if strings.Contains .Page.RelPermalink ( printf "%s/pool" .Section  ) -}}
+        {{- $page_all = $page_all | append . -}}
+    {{- end -}}
+{{- end -}}
+{{- return $page_all -}}

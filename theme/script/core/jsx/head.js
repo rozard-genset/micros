@@ -1,0 +1,1 @@
+console.log('Script : critical based script loaded');

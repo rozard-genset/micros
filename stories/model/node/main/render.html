@@ -1,0 +1,13 @@
+<!-- variable -->
+{{- $skels := "stories/module/node/main/skel/" -}}
+{{- $main1 := printf "%s/main-1.html" $skels -}}
+{{- $main2 := printf "%s/main-2.html" $skels -}}
+{{- $main3 := printf "%s/main-3.html" $skels -}}
+
+<main id="mark" class="main">
+    <div class="rows wrap grid">
+        {{- partial $main1 . -}}
+        {{- partial $main2 . -}}
+        {{- partial $main3 . -}}
+    </div>
+</main> 

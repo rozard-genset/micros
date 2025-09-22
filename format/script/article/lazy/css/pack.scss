@@ -1,0 +1,236 @@
+@import "../../../../css/code/machiato.scss";
+@import "../../../../css/part/blockquote.scss";
+@import "../../../../css/part/table.scss";
+
+#article-load {
+
+    h1, h2{
+        font-weight: bold;
+    }
+
+
+    h1{
+        font-size: 1.7rem;
+    }
+
+
+    h2{
+        font-size: 1.5rem;
+    }
+
+
+    h3{
+        font-size: 1.3rem;
+    }
+
+
+    h4{
+        font-size: 1.2rem;
+    }
+
+
+    h5{
+        font-size: 1.1rem;
+    }
+
+
+    h6{
+        font-size: 1.09rem;
+    }
+
+
+    p{
+        margin: 1rem 0;
+        font-size: 1.03rem;
+    }
+
+
+    em{
+        font-size: bold;
+        font-style: italic;
+    }
+
+
+    strong{
+        font-size: bold;
+    }
+
+
+    ol{
+        margin: 1rem 0;
+        padding-inline-start: 30px;
+    }
+
+
+    li{
+        margin: .5rem 0;
+    }
+
+
+    ul{
+        margin-block-start: 1rem;
+        padding-inline-start: 30px;
+    }
+
+
+    a{
+        color: var(--link-03-based);
+        text-decoration: underline;
+    }
+
+
+    img{
+        width: auto;
+        height: auto;
+        max-width: 100%;
+        margin: 1.5rem 0;
+    }
+
+
+    h1,h2,h3,h4,h5,h6{
+        margin: 2rem 0;
+    }
+
+    
+    .footnotes{
+        margin: 3rem 0;
+
+        p{
+            font-size: .95rem;
+            margin: 1rem 0;
+            padding-left: .5rem;
+        }
+
+        hr{
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+        }
+    }
+
+ 
+    .footnotes::before{
+        content: "Reference";
+        width: 100%;
+        font-weight: bold;
+        font-size: 1.25rem;
+    }
+}
+
+
+@media only screen and (min-width: 480px) {
+
+    #article-load {
+
+        h1{
+            font-size: 1.8rem;
+        }
+
+        h2{
+            font-size: 1.6rem;
+        }
+
+        h3{
+            font-size: 1.35rem;
+        }
+
+        h4{
+            font-size: 1.3rem;
+        }
+
+        h5{
+            font-size: 1.2rem;
+        }
+
+        h6{
+            font-size: 1.1rem;
+        }
+
+
+        ol{
+            padding-inline-start: 40px;
+            margin: 1.5rem 0;
+        }
+
+        li{
+            margin: .75rem 0;
+        }
+
+        img{
+            margin: 2rem 0;
+        }
+        
+        ul{
+            margin-block-start: 1rem;
+            padding-inline-start: 40px;
+        }
+
+        h1,h2,h3,h4,h5,h6{
+            margin: 2.25rem 0;
+        }
+        
+        .footnotes{
+            p{
+                font-size: 1rem;
+            }
+        }
+
+        .footnotes::before{
+            font-size: 1.3rem;
+        }
+    }
+}
+
+
+@media only screen and (min-width: 768px) {
+
+    #article-load {
+        p{
+            font-size: 1.1rem;
+        }
+    }
+    
+}
+
+
+@media only screen and (min-width: 1024px) {
+    
+    #article-load {
+
+        h1{
+            font-size: 1.8rem;
+        }
+
+        h2{
+            font-size: 1.75rem;
+        }
+
+        h3{
+            font-size: 1.45rem;
+        }
+
+        h4{
+            font-size: 1.35rem;
+        }
+
+        h5{
+            font-size: 1.3rem;
+        }
+
+        h6{
+            font-size: 1.25rem;
+        }
+
+        p{
+            margin: 1.5rem 0;
+            font-size: 1.125rem;
+        }
+    }
+}
+
+
+@media only screen and (min-width: 1280px) {
+}
+
+
+@media only screen and (min-width: 1536px) {
+}

@@ -1,0 +1,50 @@
+<!-- variable -->
+{{- $themes := partial "lib/system/themes.html" . -}}
+{{- $layout := partial "lib/system/layout.html" . -}}
+
+
+<!-- general -->
+{{- partial "corest/script/help/load-pack.html" . -}}
+
+
+<!-- storing -->
+{{- $link_css := resources.Get "scripts/themes/default/home/main/css/pack.scss" -}}
+{{- $link_jsx := resources.Get "scripts/themes/default/home/main/jsx/pack.js"   -}}
+
+
+<!-- modeling -->
+{{- $based_css := printf "scripts/themes/default/home/main/css/pack.scss" -}}
+{{- $based_jsx := printf "scripts/themes/default/home/main/jsx/pack.js" -}}
+
+{{- $model_css := printf "scripts/themes/default/home/%s/css/pack.scss" $layout -}}
+{{- $model_jsx := printf "scripts/themes/default/home/%s/jsx/pack.js"   $layout -}}
+
+{{- $theme_css := printf "scripts/themes/%s/home/main/css/pack.scss" $themes -}}
+{{- $theme_jsx := printf "scripts/themes/%s/home/main/jsx/pack.js"   $themes -}}
+
+{{- $skins_css := printf "scripts/themes/%s/home/%s/css/pack.scss" $themes $layout -}}
+{{- $skins_jsx := printf "scripts/themes/%s/home/%s/jsx/pack.js"   $themes $layout -}}
+
+
+<!-- appends -->
+{{- range ( slice $based_css $model_css $theme_css $skins_css ) -}}
+    {{- with resources.Get . -}}{{- $link_css = . -}}{{- end -}}
+{{- end -}}
+
+{{- range ( slice $based_jsx $model_jsx $theme_jsx $skins_jsx ) -}}
+    {{- with resources.Get . -}}{{- $link_jsx = . -}}{{- end  -}}
+{{- end -}}
+
+
+<!-- register -->
+{{- .Store.Add "pack_css" $link_css -}}
+{{- .Store.Add "pack_jsx" $link_jsx -}}
+
+
+<!-- target -->
+{{- .Store.Set "dest_css" "assets/scripts/home/main.css" -}}
+{{- .Store.Set "dest_jsx" "assets/scripts/home/main.js"  -}}
+
+
+<!-- compile -->
+{{- partial "corest/script/help/make-pack.html" . -}}

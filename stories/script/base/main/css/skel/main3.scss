@@ -1,0 +1,42 @@
+#main-3{
+    .rows{
+         justify-content: space-between;
+    }
+}
+
+
+
+@media only screen and (min-width: 480px) {
+
+}
+
+
+@media only screen and (min-width: 768px) {
+
+}
+
+
+@media only screen and (min-width: 1024px) {
+
+    #main-3{
+        .rows{
+            grid-template-columns: repeat( 3, calc( 33.333% - 1rem ));
+           
+        }
+    }
+}
+
+
+@media only screen and (min-width: 1280px) {
+
+    #main-3{
+        .rows{
+            grid-template-columns: repeat( 3, calc( 33.333% - 2rem ));
+        }
+    }
+}
+
+
+@media only screen and (min-width: 1536px) {
+
+}

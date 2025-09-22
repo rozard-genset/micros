@@ -1,0 +1,1 @@
+console.log('Parted : main | shift : critical | scope : foot | source : default | type : script | status : loaded')

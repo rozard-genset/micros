@@ -1,0 +1,9 @@
+{{ $name := .name }}
+{{ $site := .site }}
+
+{{- with $name -}}
+    {{- $path := printf "/%s/%s" "profile/groups" ( . | urlize ) -}}
+    {{- with $site.Site.GetPage $path -}}
+        {{ .Title }}
+     {{- end -}}
+{{- end -}}

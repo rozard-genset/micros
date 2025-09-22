@@ -1,0 +1,9 @@
+{{- with ( index .Page.Params.Metadata.Author 0 ) -}}
+    {{- $path := printf "/%s/%s" "profile" . -}}
+    {{- with $.Site.GetPage $path -}}
+        {{ $link := .Page.Resources.GetMatch .Page.Params.Thumb }}
+        {{ $link = $link.Resize "60x" }}
+        {{ $link = $link.Fill "28x28 webp q100" }}
+        <img src="{{ $link.RelPermalink }}" class="avatar-28" width="{{ $link.Width }}" height="{{ $link.Height }}" alt="{{ .Section }} {{ .Title }} user avater image" fetchpriority="high">
+     {{- end -}}
+{{- end -}}
